@@ -1,33 +1,32 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package penjat;
+package m03uf2;
 
 /**
  *
  * @author David
  */
 public class Penjat {
-
-    /**
-     * @param args the command line arguments
-     */
-public static void main(String[] args) {
-       
+    
+    public static void main(String[] args) {
+        
         final char[][] estatPenjatInicial =
         {
-          {' ',' ',' ',' ','','','','',' ',' ',' ',' '},                                      
+          {' ',' ',' ',' ','_','_','_','_',' ',' ',' ',' '},                                      
           {' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' '},
           {' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' '},
           {' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' '},
           {' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' '},
           {' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' '},
-          {' ','','','|','_',' ',' ',' ',' ',' ',' ',' '},                                      
-          {'|',' ',' ',' ',' ','|','','','','','_',' '},
+          {' ','_','_','|','_',' ',' ',' ',' ',' ',' ',' '},                                      
+          {'|',' ',' ',' ',' ','|','_','_','_','_','_',' '},
           {'|',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'},
-          {'|','','','','','','','','','','','|'}
-         }; 
+          {'|','_','_','_','_','_','_','_','_','_','_','|'}
+         };   
+        
+        
         final String[] paraules = {"patata","armari","bicicleta",
                             "advocat","ascensor","astronauta","autopista",
                             "avinguda","bigoti","carretera","castanya",
@@ -75,6 +74,9 @@ public static void main(String[] args) {
                 
             } while(totalEncerts < paraula.length() && totalErrors < MAXINTENTS);
         
+    }
+    
+    
     static void mostrarEstatPenjat(char[][] estat) {
         
         for (char[] fila : estat) {
@@ -97,6 +99,33 @@ public static void main(String[] args) {
     }
     
     static void mostrarParaula(String paraula, boolean[] encertades) {
-
+        
     }
+    
+    static void mostrarLletresIntroduides(String lletres) {
+        
+    }
+    
+    static String demanarLletra(String lletres) {
+        
+        return null;
+    
+    }
+    
+    static boolean existeixLletra(String lletres, char lletra) {
+        
+        return true;
+    
+    }
+    
+    static void actualitzarEstatPenjat(char[][] penjat,int errors) {
+        
+    }
+    
+    static void netejaPantalla() {
+    
+    }
+    
+    
+    
 }
