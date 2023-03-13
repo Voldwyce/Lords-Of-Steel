@@ -163,13 +163,31 @@ public class Penjat {
 
     static String demanarLletra(String lletres) {
 
-        return null;
+        Scanner sc = new Scanner(System.in);
+        String lletraStr;
+        do {
+            System.out.print("Introdueix una lletra: ");
+            lletraStr = sc.nextLine().toLowerCase();
+            if (lletraStr.length() != 1) {
+                System.out.println("Has d'introduir una sola lletra.");
+            } else if (lletres.contains(lletraStr)) {
+                System.out.println("Aquesta lletra ja ha estat introduïda.");
+            } else if (!Character.isLetter(lletraStr.charAt(0))) {
+                System.out.println("Has d'introduir una lletra.");
+            }
+        } while (lletraStr.length() != 1 || lletres.contains(lletraStr) || !Character.isLetter(lletraStr.charAt(0)));
+        return lletraStr;
 
     }
 
-    static boolean existeixLletra(String lletres, char lletra) {
+    static boolean existeixLletra(char lletra, char[] paraulaSecretaChars) {
 
-        return true;
+        for (char c : paraulaSecretaChars) {
+            if (lletra == c) {
+                return true;
+            }
+        }
+        return false;
 
     }
 
