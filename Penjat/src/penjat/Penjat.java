@@ -68,6 +68,10 @@ public class Penjat {
 
 
         do {
+            
+            // Mostrar Penjat
+            mostrarEstatPenjat(estatPenjat);
+            
             // Mostrar enigma
             mostrarParaula(paraulaSecreta, lletresEncertades);
 
