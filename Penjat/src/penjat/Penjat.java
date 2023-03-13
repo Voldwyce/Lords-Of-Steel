@@ -229,7 +229,11 @@ public class Penjat {
     }
 
     static void netejaPantalla() {
-
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception ex) {
+            System.out.println("Error al netejar la pantalla: " + ex.getMessage());
+        }
     }
-
 }
+
