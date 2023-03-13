@@ -16,7 +16,7 @@ public class Penjat {
 
     public static void main(String[] args) {
 
-          final char[][] estatPenjatInicial
+        final char[][] estatPenjatInicial
                 = {
                     {' ', ' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' '},
                     {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -128,7 +128,7 @@ public class Penjat {
 
     static void inicialitzarEstatPenjat(char[][] estatPenjatIni, char[][] estat) {
 
-          for (int i = 0; i < estatPenjatIni.length; ++i) {
+        for (int i = 0; i < estatPenjatIni.length; ++i) {
             for (int j = 0; j < estatPenjatIni[0].length; ++j) {
                 estat[i][j] = estatPenjatIni[i][j];
             }
@@ -151,7 +151,14 @@ public class Penjat {
     }
 
     static void mostrarLletresIntroduides(String lletres) {
-
+        System.out.print("Lletres: ");
+        for (int i = 0; i < lletres.length(); i++) {
+            System.out.print(lletres.charAt(i));
+            if (i < lletres.length() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("");
     }
 
     static String demanarLletra(String lletres) {
