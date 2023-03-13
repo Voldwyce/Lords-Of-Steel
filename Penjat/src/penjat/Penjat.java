@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package penjat;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,30 +18,30 @@ public class Penjat {
 
         final char[][] estatPenjatInicial
                 = {
-                    {' ', ' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' '},
-                    {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                    {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                    {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                    {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                    {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                    {' ', '_', '_', '|', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                    {'|', ' ', ' ', ' ', ' ', '|', '_', '_', '_', '_', '_', ' '},
-                    {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},
-                    {'|', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '|'}
-                };
+                {' ', ' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {' ', '_', '_', '|', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+                {'|', ' ', ' ', ' ', ' ', '|', '_', '_', '_', '_', '_', ' '},
+                {'|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'},
+                {'|', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '|'}
+        };
 
         final String[] paraules = {"patata", "armari", "bicicleta",
-            "advocat", "ascensor", "astronauta", "autopista",
-            "avinguda", "bigoti", "carretera", "castanya",
-            "cervell", "civada", "cultura", "dentista", "esquena",
-            "estrella", "formatge", "gendre", "genoll",
-            "infermera", "internet", "maduixa", "malaltia",
-            "maluc", "mandarina", "maquinista", "motocicleta",
-            "nebot", "pastanaga", "patinet", "perruqueria",
-            "pissarra", "professor", "quadrat", "taronja",
-            "tramvia", "trapezi", "tricicle", "violeta"};
+                "advocat", "ascensor", "astronauta", "autopista",
+                "avinguda", "bigoti", "carretera", "castanya",
+                "cervell", "civada", "cultura", "dentista", "esquena",
+                "estrella", "formatge", "gendre", "genoll",
+                "infermera", "internet", "maduixa", "malaltia",
+                "maluc", "mandarina", "maquinista", "motocicleta",
+                "nebot", "pastanaga", "patinet", "perruqueria",
+                "pissarra", "professor", "quadrat", "taronja",
+                "tramvia", "trapezi", "tricicle", "violeta"};
 
-        final int MAXINTENTS = 7;
+        final int MAXINTENTS = 8;
 
         // Estat gràfic del joc durant la partida
         char[][] estatPenjat
@@ -59,7 +58,7 @@ public class Penjat {
         char[] paraulaSecretaChars = paraulaSecreta.toCharArray();
         int totalEncerts = 0, totalErrors = 0;
 
-        // Estructura de dades (array) per saber quines lletres portem 
+        // Estructura de dades (array) per saber quines lletres portem
         // encertades
         boolean[] lletresEncertades = new boolean[paraulaSecretaChars.length];
 
@@ -68,10 +67,10 @@ public class Penjat {
 
 
         do {
-            
+
             // Mostrar Penjat
             mostrarEstatPenjat(estatPenjat);
-            
+
             // Mostrar enigma
             mostrarParaula(paraulaSecreta, lletresEncertades);
 
@@ -100,16 +99,15 @@ public class Penjat {
             // Afegir la lletra al llistat de lletres introduïdes
             lletresIntroduides += lletra;
 
-            // Mostrar dibuix del penjat
-            mostrarEstatPenjat(estatPenjat);
-
         } while (totalEncerts < paraulaSecreta.length() && totalErrors < MAXINTENTS);
 
 // Mostrar missatge si la partida ha acabat
         if (totalEncerts == paraulaSecreta.length()) {
             System.out.println("Felicitats, has guanyat");
+            System.out.println("La paraula era: " + paraulaSecreta);
         } else if (totalErrors == MAXINTENTS) {
             netejaPantalla();
+            mostrarEstatPenjat(estatPenjat);
             System.out.println("OOOOOoooohhhh! Has perdut!!");
             System.out.println("La paraula era: " + paraulaSecreta);
         }
@@ -213,21 +211,23 @@ public class Penjat {
             case 7:
                 estat[5][7] = '/';
                 break;
+            case 8:
+                estat[5][9] = '\\';
+                break;
         }
-       
+
     }
 
     static void netejaPantalla() {
-               try {
+        try {
             if (System.getProperty("os.name").contains("Windows")) {
-    	       new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {
                 System.out.print("\033[H\033[2J");
-    		System.out.flush();
+                System.out.flush();
             }
         } catch (IOException | InterruptedException ex) {}
-        
-    }
 
     }
+
 }
