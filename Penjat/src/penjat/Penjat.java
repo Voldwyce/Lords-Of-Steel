@@ -65,7 +65,6 @@ public class Penjat {
         // Llistat de lletres que hem introduït
         String lletresIntroduides = "";
 
-        Scanner scanner = new Scanner(System.in);
 
         do {
             // Mostrar enigma
@@ -95,10 +94,6 @@ public class Penjat {
 
             // Afegir la lletra al llistat de lletres introduïdes
             lletresIntroduides += lletra;
-
-            // Mostrar informació del joc
-            System.out.println("Encerts: " + totalEncerts);
-            System.out.println("Errors: " + totalErrors);
 
             // Mostrar dibuix del penjat
             mostrarEstatPenjat(estatPenjat);
@@ -193,37 +188,28 @@ public class Penjat {
         // Actualitza l'estat del penjat segons els intents fallits
         switch (errors) {
             case 1:
-                estat[1][4] = 'o';
+                estat[1][8] = '|';
                 break;
             case 2:
-                estat[2][4] = '|';
+                estat[2][8] = 'o';
                 break;
             case 3:
-                estat[3][4] = '|';
+                estat[3][8] = '|';
                 break;
             case 4:
-                estat[3][3] = '\\';
+                estat[3][7] = '/';
                 break;
             case 5:
-                estat[3][5] = '/';
+                estat[3][9] = '\\';
                 break;
             case 6:
-                estat[4][4] = '|';
+                estat[4][8] = '|';
                 break;
             case 7:
-                estat[5][3] = '\\';
-                estat[5][5] = '/';
+                estat[5][7] = '/';
                 break;
         }
-
-        // Mostra l'estat actual del penjat
-        System.out.println();
-        for (int i = 0; i < estat.length; i++) {
-            for (int j = 0; j < estat[0].length; j++) {
-                System.out.print(estat[i][j]);
-            }
-            System.out.println();
-        }
+       
     }
 
     static void netejaPantalla() {
