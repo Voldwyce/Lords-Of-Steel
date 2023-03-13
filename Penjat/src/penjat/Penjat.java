@@ -16,7 +16,7 @@ public class Penjat {
 
     public static void main(String[] args) {
 
-        final char[][] estatPenjatInicial
+          final char[][] estatPenjatInicial
                 = {
                     {' ', ' ', ' ', ' ', '_', '_', '_', '_', ' ', ' ', ' ', ' '},
                     {' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -50,36 +50,69 @@ public class Penjat {
         // Inicialitzar el dibuix del penjat
         inicialitzarEstatPenjat(estatPenjatInicial, estatPenjat);
 
-        mostrarEstatPenjat(estatPenjat);
-
         // Seleccionar la paraula aleatòriament
         int index = (int) (Math.random() * paraules.length);
-        String paraula = paraules[index];
-        // Eliminar aquesta línia quan el joc estigui completat
-        paraula = "patata";
+        String paraulaSecreta = paraules[index];
 
+        // Convertir la paraula a un array de caràcters
+        char[] paraulaSecretaChars = paraulaSecreta.toCharArray();
         int totalEncerts = 0, totalErrors = 0;
 
-        // Estructra de dades (array) per saber quines lletres portem 
-        //encertades            
-        boolean[] lletresEncertades = new boolean[paraula.length()];
+        // Estructura de dades (array) per saber quines lletres portem 
+        // encertades
+        boolean[] lletresEncertades = new boolean[paraulaSecretaChars.length];
 
         // Llistat de lletres que hem introduït
-        String lletres = "";
+        String lletresIntroduides = "";
+
+        Scanner scanner = new Scanner(System.in);
 
         do {
             // Mostrar enigma
-            mostrarParaula(paraula, lletresEncertades);
+            mostrarParaula(paraulaSecreta, lletresEncertades);
 
             // Mostrar lletres
-            mostrarLletresIntroduides(lletres);
+            mostrarLletresIntroduides(lletresIntroduides);
 
             // Demana lletra al usuari
-            String lletraStr = demanarLletra(lletres);
+            String lletraStr = demanarLletra(lletresIntroduides);
             char lletra = lletraStr.charAt(0);
 
-        } while (totalEncerts < paraula.length() && totalErrors < MAXINTENTS);
+            // Comprovar si la lletra introduïda pertany a la paraula
+            boolean encertada = false;
+            for (int i = 0; i < paraulaSecretaChars.length; i++) {
+                if (paraulaSecretaChars[i] == lletra) {
+                    lletresEncertades[i] = true;
+                    totalEncerts++;
+                    encertada = true;
+                }
+            }
+            // Actualitzar el dibuix del penjat si la lletra no es correcta
+            if (!encertada) {
+                totalErrors++;
+                actualitzarEstatPenjat(estatPenjat, totalErrors);
+            }
 
+            // Afegir la lletra al llistat de lletres introduïdes
+            lletresIntroduides += lletra;
+
+            // Mostrar informació del joc
+            System.out.println("Encerts: " + totalEncerts);
+            System.out.println("Errors: " + totalErrors);
+
+            // Mostrar dibuix del penjat
+            mostrarEstatPenjat(estatPenjat);
+
+        } while (totalEncerts < paraulaSecreta.length() && totalErrors < MAXINTENTS);
+
+// Mostrar missatge si la partida ha acabat
+        if (totalEncerts == paraulaSecreta.length()) {
+            System.out.println("Felicitats, has guanyat");
+        } else if (totalErrors == MAXINTENTS) {
+            netejaPantalla();
+            System.out.println("OOOOOoooohhhh! Has perdut!!");
+            System.out.println("La paraula era: " + paraulaSecreta);
+        }
     }
 
     static void mostrarEstatPenjat(char[][] estat) {
