@@ -128,7 +128,7 @@ public class Penjat {
 
     static void inicialitzarEstatPenjat(char[][] estatPenjatIni, char[][] estat) {
 
-        for (int i = 0; i < estatPenjatIni.length; ++i) {
+          for (int i = 0; i < estatPenjatIni.length; ++i) {
             for (int j = 0; j < estatPenjatIni[0].length; ++j) {
                 estat[i][j] = estatPenjatIni[i][j];
             }
@@ -137,7 +137,17 @@ public class Penjat {
     }
 
     static void mostrarParaula(String paraula, boolean[] encertades) {
-
+        System.out.print("Paraula: ");
+        for (int i = 0; i < paraula.length(); i++) {
+            char lletra = paraula.charAt(i);
+            if (encertades[i]) {
+                System.out.print(lletra);
+            } else {
+                System.out.print("*");
+            }
+            System.out.print(" ");
+        }
+        System.out.println("");
     }
 
     static void mostrarLletresIntroduides(String lletres) {
