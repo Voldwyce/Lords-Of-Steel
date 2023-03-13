@@ -191,8 +191,41 @@ public class Penjat {
 
     }
 
-    static void actualitzarEstatPenjat(char[][] penjat, int errors) {
+    static void actualitzarEstatPenjat(char[][] estat, int errors) {
+        // Actualitza l'estat del penjat segons els intents fallits
+        switch (errors) {
+            case 1:
+                estat[1][4] = 'o';
+                break;
+            case 2:
+                estat[2][4] = '|';
+                break;
+            case 3:
+                estat[3][4] = '|';
+                break;
+            case 4:
+                estat[3][3] = '\\';
+                break;
+            case 5:
+                estat[3][5] = '/';
+                break;
+            case 6:
+                estat[4][4] = '|';
+                break;
+            case 7:
+                estat[5][3] = '\\';
+                estat[5][5] = '/';
+                break;
+        }
 
+        // Mostra l'estat actual del penjat
+        System.out.println();
+        for (int i = 0; i < estat.length; i++) {
+            for (int j = 0; j < estat[0].length; j++) {
+                System.out.print(estat[i][j]);
+            }
+            System.out.println();
+        }
     }
 
     static void netejaPantalla() {
