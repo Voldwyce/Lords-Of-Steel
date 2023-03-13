@@ -180,15 +180,13 @@ public class Penjat {
 
     }
 
-    static boolean existeixLletra(char lletra, char[] paraulaSecretaChars) {
-
-        for (char c : paraulaSecretaChars) {
-            if (lletra == c) {
+    public static boolean existeixLletra(char lletra, String paraulaSecreta) {
+        for (int i = 0; i < paraulaSecreta.length(); i++) {
+            if (lletra == paraulaSecreta.charAt(i)) {
                 return true;
             }
         }
         return false;
-
     }
 
     static void actualitzarEstatPenjat(char[][] estat, int errors) {
@@ -236,4 +234,3 @@ public class Penjat {
         }
     }
 }
-
