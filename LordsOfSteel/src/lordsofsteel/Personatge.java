@@ -8,16 +8,22 @@
  * @author David
  */
 public class Personatge {
-   
+
     // Atributs principals
-    protected double forca;
-    protected double constitucio;
-    protected double velocitat;
-    protected double intelligencia;
-    protected double sort;
-    
+    protected int forca;
+    protected int constitucio;
+    protected int velocitat;
+    protected int intelligencia;
+    protected int sort;
+
     // Estadístiques derivades
-    protected double ps;
+    protected int ps;
+    protected int pd;
+    protected int pa;
+    protected int pe;
+    
+    // Arma
+    protected Arma arma;
 
     public double getForca() {
         return forca;
@@ -54,28 +60,23 @@ public class Personatge {
     public double getPe() {
         return pe;
     }
-    protected double pd;
-    protected double pa;
-    protected double pe;
-    
-    public Personatge(double forca, double constitucio, double velocitat,
-                      double intelligencia, double sort) {
-        this.forca         = forca;
-        this.constitucio   = constitucio;
-        this.velocitat     = velocitat;
+
+    public Personatge(int forca, int constitucio, int velocitat,
+            int intelligencia, int sort) {
+        this.forca = forca;
+        this.constitucio = constitucio;
+        this.velocitat = velocitat;
         this.intelligencia = intelligencia;
-        this.sort          = sort;
+        this.sort = sort;
 
         calculaEstadistiquesDerivades();
     }
-                      
+
     protected void calculaEstadistiquesDerivades() {
         ps = constitucio + forca;
-        pd = forca/4;
+        pd = forca / 4;
         pa = intelligencia + sort;
         pe = velocitat + sort + intelligencia;
     }
-    
-    
-}
 
+}
