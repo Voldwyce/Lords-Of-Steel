@@ -2,21 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+package lordsofsteel;
 /**
  *
  * @author David
  */
 public class Huma extends Personatge {
     
-    public Huma(double forca, double constitucio, double velocitat,
-                   double intelligencia, double sort) {
+    public Huma(int forca, int constitucio, int velocitat,
+                   int intelligencia, int sort, Arma arma) {
 
-        super(forca,constitucio,velocitat,intelligencia,sort);
+        super(forca,constitucio,velocitat,intelligencia,sort,arma);
     }  
 
-    protected void calculaEstadistiquesDerivades() {
-        super.calculaEstadistiquesDerivades();
+    protected void calculaEstadistiquesSecundaries() {
+        super.calculaEstadistiquesSecundaries();
         ps = constitucio + forca + intelligencia;                
     }    
     
