@@ -1,4 +1,4 @@
-# Penjat
+# LordsOfSteel
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://git.copernic.cat/pena.armengol.david/penjat.git
+git remote add origin https://git.copernic.cat/pena.armengol.david/lordsofsteel.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](http://git.copernic.cat/pena.armengol.david/penjat/-/settings/integrations)
+- [ ] [Set up project integrations](http://git.copernic.cat/pena.armengol.david/lordsofsteel/-/settings/integrations)
 
 ## Collaborate with your team
 
