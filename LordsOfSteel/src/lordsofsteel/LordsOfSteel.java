@@ -94,9 +94,9 @@ public class LordsOfSteel {
         for (int selec = 1; selec <= 2; selec++) {
 
             for (int i = 0; i < personatges.size(); i++) {
-                String tipus = " ";
-                if (seleccionats[i] = false) {
+                if (!seleccionats[i]) {
 
+                    String tipus = " ";
                     if (personatges.get(i) instanceof Nan) {
                         tipus = "Nan";
                     } else if (personatges.get(i) instanceof Huma) {
@@ -107,18 +107,40 @@ public class LordsOfSteel {
                         tipus = "Maia";
                     }
 
+                    System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
                 }
-
-                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
 
             }
             System.out.printf("\nTria un personatge" + selec + " : ");
             int opcio = sc.nextInt();
             seleccionats[opcio - 1] = true;
-            lluitador[selec-1] = personatges.get(opcio-1);
+            lluitador[selec - 1] = personatges.get(opcio - 1);
 
             System.out.println("Personatge triat: " + personatges.get(opcio - 1).getNom());
         }
+
+        // Inici combat
+        Personatge atacant = lluitador[0];
+        Personatge defensor = lluitador[1];
+
+        Dau dau1 = new Dau();
+        Dau dau2 = new Dau();
+        Dau dau3 = new Dau();
+
+        int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+        // System.out.println("Valor daus: " + valor);
+
+        if (valor <= atacant.getPa()) { // Atacant ataca
+            valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+            if (valor > defensor.getPe()) { // No aconsegueix esquivar
+                defensor.setPs(defensor.getPs() - atacant.getPd());
+            }
+        }
+
+        // Final ronda
+        Personatge aux = atacant;
+        atacant = defensor;
+        defensor = aux;
 
     }
 

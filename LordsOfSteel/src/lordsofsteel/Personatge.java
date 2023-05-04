@@ -9,7 +9,7 @@ package lordsofsteel;
  */
 public class Personatge {
 
-    // Atributs principals
+
     protected int forca;
     protected int constitucio;
     protected int velocitat;
@@ -44,6 +44,27 @@ public class Personatge {
         this.arma = arma;
     }
     
+        public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public void setConstitucio(int constitucio) {
+        this.constitucio = constitucio;
+    }
+
+    public void setVelocitat(int velocitat) {
+        this.velocitat = velocitat;
+    }
+
+    public void setIntelligencia(int intelligencia) {
+        this.intelligencia = intelligencia;
+    }
+
+    // Atributs principals
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+    
     public int getForca() {
         return forca;
     }
@@ -62,6 +83,22 @@ public class Personatge {
 
     public int getSort() {
         return sort;
+    }
+    
+        public void setPs(int ps) {
+        this.ps = ps;
+    }
+
+    public void setPd(int pd) {
+        this.pd = pd;
+    }
+
+    public void setPa(int pa) {
+        this.pa = pa;
+    }
+
+    public void setPe(int pe) {
+        this.pe = pe;
     }
 
     public int getPs() {
