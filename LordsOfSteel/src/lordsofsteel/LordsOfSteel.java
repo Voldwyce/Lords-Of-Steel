@@ -58,9 +58,9 @@ public class LordsOfSteel {
         System.out.println("|                         |");
         System.out.println("+-------------------------+");
         System.out.println("");
-        String menuOption = sc.nextLine();
-        int opcio = Integer.parseInt(menuOption);
-        System.out.print("Seleccionar: ");
+        //String menuOption = sc.nextLine();
+        //System.out.print("Seleccionar: ");
+        int opcio = sc.nextInt();
         boolean valor = false;
         switch (opcio) {
             case 1:
@@ -87,14 +87,41 @@ public class LordsOfSteel {
 
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
 
-        //  for (Personatge p : personatges)
-        for (int i = 0; i < personatges.size(); i++) {
-            System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom());
-        }
+        boolean[] seleccionats = new boolean[personatges.size()];
+        Personatge[] lluitador = new Personatge[2];
 
-        System.out.printf("\nTria un personatge: ");
-        int entrada = sc.nextInt();
+        //  for (Personatge p : personatges)
+        for (int selec = 1; selec <= 2; selec++) {
+
+            for (int i = 0; i < personatges.size(); i++) {
+                String tipus = " ";
+                if (seleccionats[i] = false) {
+
+                    if (personatges.get(i) instanceof Nan) {
+                        tipus = "Nan";
+                    } else if (personatges.get(i) instanceof Huma) {
+                        tipus = "Huma";
+                    } else if (personatges.get(i) instanceof Mitja) {
+                        tipus = "Mitja";
+                    } else if (personatges.get(i) instanceof Maia) {
+                        tipus = "Maia";
+                    }
+
+                }
+
+                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+
+            }
+            System.out.printf("\nTria un personatge" + selec + " : ");
+            int opcio = sc.nextInt();
+            seleccionats[opcio - 1] = true;
+            lluitador[selec-1] = personatges.get(opcio-1);
+
+            System.out.println("Personatge triat: " + personatges.get(opcio - 1).getNom());
+        }
 
     }
 
+    // public static void verificarMenu(String menuOption) {
+    //  }
 }
