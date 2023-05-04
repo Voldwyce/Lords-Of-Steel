@@ -9,10 +9,10 @@ package lordsofsteel;
  */
 public class Huma extends Personatge {
     
-    public Huma(int forca, int constitucio, int velocitat,
+    public Huma(String nom, int forca, int constitucio, int velocitat,
                    int intelligencia, int sort, Arma arma) {
 
-        super(forca,constitucio,velocitat,intelligencia,sort,arma);
+        super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
     }  
 
     protected void calculaEstadistiquesSecundaries() {

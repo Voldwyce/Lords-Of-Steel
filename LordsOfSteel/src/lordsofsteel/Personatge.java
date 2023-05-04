@@ -22,6 +22,16 @@ public class Personatge {
     protected int pa;
     protected int pe;
 
+    public String getNom() {
+        return nom;
+    }
+
+    // Nom
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
+    protected String nom;
     
     // Arma
     protected Arma arma;
@@ -70,8 +80,10 @@ public class Personatge {
         return pe;
     }
 
-    public Personatge(int forca, int constitucio, int velocitat,
+    public Personatge(String nom, int forca, int constitucio, int velocitat,
             int intelligencia, int sort, Arma arma) {
+        
+        this.nom = nom;
         this.forca = forca;
         this.constitucio = constitucio;
         this.velocitat = velocitat;
