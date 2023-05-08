@@ -15,6 +15,7 @@ public class Mitja extends Personatge {
         super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
     }
     
+    @Override
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
         pe = velocitat + sort + intelligencia + forca;                

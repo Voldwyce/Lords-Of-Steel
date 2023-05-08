@@ -15,6 +15,7 @@ public class Maia extends Personatge {
         super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
     }
     
+    @Override
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
         pa = intelligencia + sort + velocitat;                

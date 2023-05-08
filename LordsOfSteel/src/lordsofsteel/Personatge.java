@@ -94,7 +94,9 @@ public class Personatge {
     }
 
     public void setPa(int pa) {
+        
         this.pa = pa;
+        
     }
 
     public void setPe(int pe) {
@@ -137,5 +139,11 @@ public class Personatge {
         pa = intelligencia + sort;
         pe = velocitat + sort + intelligencia;
     }
+    
+        public void restaurarPS() {
+        this.ps = (int) (this.ps * 1.10);
+    }
+     
+        
 
 }

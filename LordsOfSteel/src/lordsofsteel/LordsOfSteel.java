@@ -64,7 +64,7 @@ public class LordsOfSteel {
         boolean valor = false;
         switch (opcio) {
             case 1:
-
+                crearPersonatge(personatges);
                 break;
             case 2:
 
@@ -85,6 +85,43 @@ public class LordsOfSteel {
 
     }
 
+    
+    public static void crearPersonatge (ArrayList<Personatge> personatges) {
+        
+         System.out.println("+-------------------------+");
+        System.out.println("|                         |");
+        System.out.println("|    |Clase|     |");
+        System.out.println("|                         |");
+        System.out.println("| 1. Huma    |");
+        System.out.println("| 2. Nan |");
+        System.out.println("| 3. Maia  |");
+        System.out.println("| 4. Mitja      |");
+        System.out.println("|                         |");
+        System.out.println("+-------------------------+");
+        System.out.println("");
+        //String menuOption = sc.nextLine();
+        //System.out.print("Seleccionar: ");
+        int opcio = sc.nextInt();
+        switch (opcio) {
+            case 1:
+                //huma 
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+                System.out.println("");
+                iniciarCombat(personatges);
+                break;
+                
+            default:
+                throw new AssertionError();
+        }
+        
+    }
+    
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
 
         boolean[] seleccionats = new boolean[personatges.size()];

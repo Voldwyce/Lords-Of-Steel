@@ -15,6 +15,7 @@ public class Huma extends Personatge {
         super(nom,forca,constitucio,velocitat,intelligencia,sort,arma);
     }  
 
+    @Override
     protected void calculaEstadistiquesSecundaries() {
         super.calculaEstadistiquesSecundaries();
         ps = constitucio + forca + intelligencia;                
