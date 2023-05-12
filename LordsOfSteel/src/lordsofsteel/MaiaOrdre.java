@@ -8,24 +8,16 @@ package lordsofsteel;
  *
  * @author David
  */
-public class NanCaos extends Nan implements Caos {
+public class MaiaOrdre extends Maia implements Ordre {
 
-    public NanCaos(String nom, int forca, int constitucio, int velocitat,
+    public MaiaOrdre(String nom, int forca, int constitucio, int velocitat,
             int intelligencia, int sort, Arma arma) {
         super(nom, forca, constitucio, velocitat, intelligencia, sort, arma);
     }
 
     @Override
-    public boolean atacPAReduida(Dau ...daus) {
-          int sum = 0;
-        for (Dau dau : daus) {
-            sum += dau.llencar();
-        }
-        
-        int paReducida = getPa() / 2;
-        
-        return sum > paReducida;
-    }
+    public void restaurarPS() {
+        this.ps = (int) (this.ps * 1.10);
     }
 
-
+}

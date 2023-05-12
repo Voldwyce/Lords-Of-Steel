@@ -8,17 +8,17 @@ package lordsofsteel;
  *
  * @author David
  */
-public class NanCaos extends Nan implements Caos {
+public class MitjaCaos extends Mitja implements Caos {
 
-    public NanCaos(String nom, int forca, int constitucio, int velocitat,
+    public MitjaCaos(String nom, int forca, int constitucio, int velocitat,
             int intelligencia, int sort, Arma arma) {
         super(nom, forca, constitucio, velocitat, intelligencia, sort, arma);
     }
 
     @Override
-    public boolean atacPAReduida(Dau ...daus) {
-          int sum = 0;
-        for (Dau dau : daus) {
+    public boolean atacPAReduida(Dau... dados) {
+        int sum = 0;
+        for (Dau dau : dados) {
             sum += dau.llencar();
         }
         
@@ -26,6 +26,6 @@ public class NanCaos extends Nan implements Caos {
         
         return sum > paReducida;
     }
-    }
 
+}
 
