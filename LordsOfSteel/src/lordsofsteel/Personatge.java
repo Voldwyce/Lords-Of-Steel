@@ -15,12 +15,23 @@ public class Personatge {
     protected int velocitat;
     protected int intelligencia;
     protected int sort;
+    protected int nivell;
 
     // Estadístiques secundaries
     protected int ps;
     protected int pd;
     protected int pa;
     protected int pe;
+    protected int niv;
+    protected int pex;
+
+    public int getNiv() {
+        return niv;
+    }
+
+    public void setNiv(int niv) {
+        this.niv = niv;
+    }
 
     public String getNom() {
         return nom;
@@ -84,6 +95,14 @@ public class Personatge {
     public int getSort() {
         return sort;
     }
+
+    public int getNivell() {
+        return nivell;
+    }
+
+    public void setNivell(int nivell) {
+        this.nivell = nivell;
+    }
     
         public void setPs(int ps) {
         this.ps = ps;
@@ -120,7 +139,7 @@ public class Personatge {
     }
 
     public Personatge(String nom, int forca, int constitucio, int velocitat,
-            int intelligencia, int sort, Arma arma) {
+            int intelligencia, int sort, int nivell, Arma arma) {
         
         this.nom = nom;
         this.forca = forca;
@@ -128,9 +147,11 @@ public class Personatge {
         this.velocitat = velocitat;
         this.intelligencia = intelligencia;
         this.sort = sort;
+        this.nivell = nivell;
         this.arma = arma;
 
         calculaEstadistiquesSecundaries();
+        
     }
 
     protected void calculaEstadistiquesSecundaries() {
@@ -138,12 +159,47 @@ public class Personatge {
         pd = (forca + arma.getWpow()) / 4;
         pa = intelligencia + sort;
         pe = velocitat + sort + intelligencia;
+        pex = 0;
     }
     
         public void restaurarPS() {
         this.ps = (int) (this.ps * 1.10);
     }
      
+        public void subirDeNivel(){
+        this.niv++;
+        this.constitucio++;
+        this.forca++;
+        this.intelligencia++;
+        this.sort++;
+        this.velocitat++;
+        this.pex = 0;
+    }
+
+    public int getPex() {
+        return pex;
+    }
+
+    public void setPex(int pex) {
+        this.pex = pex;
+    }
+    
+    public int getPexSiguienteNivel(){
+        switch(this.niv){
+            case 1:
+                return 100;
+            case 2:
+                return 200;
+            case 3:
+                return 500;
+            case 4:
+                return 1000;
+            case 5:
+                return 2000;
+            default:
+                return Integer.MAX_VALUE;
+        }
+    }
         
 
 }

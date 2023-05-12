@@ -11,8 +11,8 @@ package lordsofsteel;
 public class MaiaOrdre extends Maia implements Ordre {
 
     public MaiaOrdre(String nom, int forca, int constitucio, int velocitat,
-            int intelligencia, int sort, Arma arma) {
-        super(nom, forca, constitucio, velocitat, intelligencia, sort, arma);
+            int intelligencia, int sort,  int nivell, Arma arma) {
+        super(nom, forca, constitucio, velocitat, intelligencia, sort, nivell, arma);
     }
 
     @Override

@@ -11,8 +11,8 @@ package lordsofsteel;
 public class MitjaCaos extends Mitja implements Caos {
 
     public MitjaCaos(String nom, int forca, int constitucio, int velocitat,
-            int intelligencia, int sort, Arma arma) {
-        super(nom, forca, constitucio, velocitat, intelligencia, sort, arma);
+            int intelligencia, int sort,  int nivell, Arma arma) {
+        super(nom, forca, constitucio, velocitat, intelligencia, sort, nivell, arma);
     }
 
     @Override

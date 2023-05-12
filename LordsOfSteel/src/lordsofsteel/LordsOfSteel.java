@@ -17,16 +17,16 @@ public class LordsOfSteel {
     public static void main(String[] args) {
 
         //  Maia morderK = new Maia(4,8,3,9,2);
-        Nan n1 = new Nan("Tirion", 8, 6, 13, 16, 16, new Arma("Daga"));
+        Nan n1 = new Nan("Tirion", 8, 6, 13, 16, 16, 0, new Arma("Daga"));
         // Persontage normal (8+5)/4 = 3
         // Nan pd = (8+6+5)/4 = 4
         // Nan ps = (8+6) = 14
         // System.out.println("Punts de dany de n1: " + n1.getPd());
         // System.out.println("Punts de vida de n1" + n1.getPs());
 
-        Huma h1 = new Huma("Luis", 13, 16, 6, 10, 6, new Arma("Espasa"));
-        Mitja mi1 = new Mitja("Frodo", 9, 7, 7, 15, 16, new Arma("Martell"));
-        Maia ma1 = new Maia("Nilf", 7, 9, 12, 15, 17, new Arma("Daga"));
+        Huma h1 = new Huma("Luis", 13, 16, 6, 10, 6, 0, new Arma("Espasa"));
+        Mitja mi1 = new Mitja("Frodo", 9, 7, 7, 15, 16, 0, new Arma("Martell"));
+        Maia ma1 = new Maia("Nilf", 7, 9, 12, 15, 17, 0, new Arma("Daga"));
 
         // Personatge[] personatges = new Personatge[4];
         ArrayList<Personatge> personatges = new ArrayList<Personatge>();
@@ -102,8 +102,100 @@ public class LordsOfSteel {
         //System.out.print("Seleccionar: ");
         int opcio = sc.nextInt();
         switch (opcio) {
-            case 1:
-            //huma 
+case 1:
+    System.out.print("Introdueix el nom del personatge: ");
+    String nom = sc.next();
+    int puntsRestants = 60;
+
+    System.out.println("Tens " + puntsRestants + " punts per repartir entre les següents característiques:");
+
+    System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
+    int forca = sc.nextInt();
+    while (forca > puntsRestants) {
+        System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
+        System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
+        forca = sc.nextInt();
+    }
+    puntsRestants -= forca;
+
+    System.out.print("Constitució (màxim " + puntsRestants + " punts disponibles): ");
+    int constitucio = sc.nextInt();
+    while (constitucio > puntsRestants) {
+        System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
+        System.out.print("Constitució (màxim " + puntsRestants + " punts disponibles): ");
+        constitucio = sc.nextInt();
+    }
+    puntsRestants -= constitucio;
+
+    System.out.print("Velocitat (màxim " + puntsRestants + " punts disponibles): ");
+    int velocitat = sc.nextInt();
+    while (velocitat > puntsRestants) {
+        System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
+        System.out.print("Velocitat (màxim " + puntsRestants + " punts disponibles): ");
+        velocitat = sc.nextInt();
+    }
+    puntsRestants -= velocitat;
+
+    System.out.print("Intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
+    int intelligencia = sc.nextInt();
+    while (intelligencia > puntsRestants) {
+        System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
+        System.out.print("Intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
+        intelligencia = sc.nextInt();
+    }
+    puntsRestants -= intelligencia;
+
+    System.out.print("Sort (màxim " + puntsRestants + " punts disponibles): ");
+    int sort = sc.nextInt();
+    while (sort > puntsRestants) {
+        System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
+        System.out.print("Sort (màxim " + puntsRestants + " punts disponibles): ");
+        sort = sc.nextInt();
+    }
+    puntsRestants -= sort;
+
+    System.out.println("Et queden " + puntsRestants + " punts per distribuir.");
+
+    System.out.println("Selecciona una opció d'arma:");
+    System.out.println("1. Daga");
+    System.out.println("2. Espassa");
+    System.out.println("3. Martell");
+    int opcioArma = sc.nextInt();
+    String nomArma;
+    switch (opcioArma) {
+        case 1:
+            nomArma = "Daga";
+            break;
+        case 2:
+            nomArma = "Espassa";
+            break;
+        case 3:
+            nomArma = "Martell";
+            break;
+        default:
+            throw new AssertionError();
+    }
+
+    System.out.println("Selecciona una opció:");
+    System.out.println("1. Ordre");
+    System.out.println("2. Caos");
+    int opcio2 = sc.nextInt();
+    switch (opcio2) {
+        case 1:
+            HumaOrdre nouHumaOrdre = new HumaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
+            personatges.add(nouHumaOrdre);
+            System.out.println("Personatge creat: " + nouHumaOrdre.getNom() + " (Ordre)");
+            break;
+        case 2:
+            HumaCaos nouHumaCaos = new HumaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
+            personatges.add(nouHumaCaos);
+          System.out.println("Personatge creat: " + nouHumaCaos.getNom() + " (Caos)");
+            break;
+        default:
+            throw new AssertionError();
+    }
+    break;
+
             case 2:
 
                 break;
@@ -178,8 +270,15 @@ public class LordsOfSteel {
         atacant = defensor;
         defensor = aux;
 
+        /*
+        atacant.setPs(atacant.getPs());
+        defensor.setPs(defensor.getPs());
+        int pexGanador = defensor.getPs();
+        atacant.setPex(atacant.getPex() + pexGanador);
+        if (atacant.subirDeNivel()) {
+            atacant.calculaEstadistiquesSecundaries();
+        } */
+        // public static void verificarMenu(String menuOption) {
+        //  }
     }
-
-    // public static void verificarMenu(String menuOption) {
-    //  }
 }
