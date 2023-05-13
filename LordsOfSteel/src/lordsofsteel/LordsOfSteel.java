@@ -69,7 +69,7 @@ public class LordsOfSteel {
                     crearPersonatge(personatges);
                     break;
                 case 2:
-
+                    esborrarPersonatge(personatges);
                     break;
                 case 3:
 
@@ -85,11 +85,9 @@ public class LordsOfSteel {
                 default:
                     System.out.println("Opció invàlida. Si us plau, selecciona una opció vàlida.");
                     break;
-        }
             }
+        }
     }
-
-    
 
     public static void crearPersonatge(ArrayList<Personatge> personatges) {
         boolean crearPersonatge = false;
@@ -238,6 +236,57 @@ public class LordsOfSteel {
                     break;
                 case 2:
                     crearPersonatge = true;
+                    System.out.println("Sortint...");
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
+        }
+
+    }
+
+    public static void esborrarPersonatge(ArrayList<Personatge> personatges) {
+
+        boolean borrarPersonatge = false;
+
+        while (!borrarPersonatge) {
+
+            for (int i = 0; i < personatges.size(); i++) {
+                String tipus = " ";
+                if (personatges.get(i) instanceof Nan) {
+                    tipus = "Nan";
+                } else if (personatges.get(i) instanceof Huma) {
+                    tipus = "Huma";
+                } else if (personatges.get(i) instanceof Mitja) {
+                    tipus = "Mitja";
+                } else if (personatges.get(i) instanceof Maia) {
+                    tipus = "Maia";
+                }
+
+                System.out.printf("%d %s\n", (i), personatges.get(i).getNom(), tipus);
+            }
+
+            System.out.println("Personatge a esborrar:");
+            int opcio = sc.nextInt();
+
+            if (opcio >= 0 && opcio < personatges.size()) {
+                Personatge personatgeEsborrat = personatges.remove(opcio);
+                System.out.println("Personatge " + personatgeEsborrat.getNom() + " esborrat amb èxit.");
+            } else {
+                System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
+            }
+
+            System.out.println("Selecciona una opció:");
+            System.out.println("1. Esborrar un altre personatge");
+            System.out.println("2. Sortir");
+            int crearSortir = sc.nextInt();
+            switch (crearSortir) {
+                case 1:
+                    borrarPersonatge = false;
+                    break;
+                case 2:
+                    borrarPersonatge = true;
                     System.out.println("Sortint...");
                     break;
                 default:
