@@ -72,7 +72,7 @@ public class LordsOfSteel {
                     esborrarPersonatge(personatges);
                     break;
                 case 3:
-
+                    editarPersonatge(personatges);
                     break;
                 case 4:
                     System.out.println("");
@@ -93,7 +93,18 @@ public class LordsOfSteel {
         boolean crearPersonatge = false;
 
         while (!crearPersonatge) {
-
+            int crearSortir = sc.nextInt();
+            switch (crearSortir) {
+                case 1:
+                    crearPersonatge = false;
+                    break;
+                case 2:
+                    crearPersonatge = true;
+                    System.out.println("Sortint...");
+                    break;
+                default:
+                    throw new AssertionError();
+            }
             System.out.println("+-------------------------+");
             System.out.println("|                         |");
             System.out.println("|    |Clase|     |");
@@ -229,18 +240,6 @@ public class LordsOfSteel {
             System.out.println("Selecciona una opció:");
             System.out.println("1. Crear un personatge");
             System.out.println("2. Sortir");
-            int crearSortir = sc.nextInt();
-            switch (crearSortir) {
-                case 1:
-                    crearPersonatge = false;
-                    break;
-                case 2:
-                    crearPersonatge = true;
-                    System.out.println("Sortint...");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
 
         }
 
@@ -251,34 +250,8 @@ public class LordsOfSteel {
         boolean borrarPersonatge = false;
 
         while (!borrarPersonatge) {
-
-            for (int i = 0; i < personatges.size(); i++) {
-                String tipus = " ";
-                if (personatges.get(i) instanceof Nan) {
-                    tipus = "Nan";
-                } else if (personatges.get(i) instanceof Huma) {
-                    tipus = "Huma";
-                } else if (personatges.get(i) instanceof Mitja) {
-                    tipus = "Mitja";
-                } else if (personatges.get(i) instanceof Maia) {
-                    tipus = "Maia";
-                }
-
-                System.out.printf("%d %s\n", (i), personatges.get(i).getNom(), tipus);
-            }
-
-            System.out.println("Personatge a esborrar:");
-            int opcio = sc.nextInt();
-
-            if (opcio >= 0 && opcio < personatges.size()) {
-                Personatge personatgeEsborrat = personatges.remove(opcio);
-                System.out.println("Personatge " + personatgeEsborrat.getNom() + " esborrat amb èxit.");
-            } else {
-                System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
-            }
-
             System.out.println("Selecciona una opció:");
-            System.out.println("1. Esborrar un altre personatge");
+            System.out.println("1. Esborrar un personatge");
             System.out.println("2. Sortir");
             int crearSortir = sc.nextInt();
             switch (crearSortir) {
@@ -292,9 +265,137 @@ public class LordsOfSteel {
                 default:
                     throw new AssertionError();
             }
+            for (int i = 0; i < personatges.size(); i++) {
+                String tipus = " ";
+                if (personatges.get(i) instanceof Nan) {
+                    tipus = "Nan";
+                } else if (personatges.get(i) instanceof Huma) {
+                    tipus = "Huma";
+                } else if (personatges.get(i) instanceof Mitja) {
+                    tipus = "Mitja";
+                } else if (personatges.get(i) instanceof Maia) {
+                    tipus = "Maia";
+                }
+
+                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+            }
+
+            System.out.println("Personatge a esborrar:");
+            int opcio = sc.nextInt() - 1;
+
+            if (opcio >= 0 && opcio < personatges.size()) {
+                Personatge personatgeEsborrat = personatges.remove(opcio);
+                System.out.println("Personatge " + personatgeEsborrat.getNom() + " esborrat amb èxit.");
+            } else {
+                System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
+            }
 
         }
 
+    }
+
+    public static void editarPersonatge(ArrayList<Personatge> personatges) {
+        boolean editarPersonatge = false;
+        System.out.println("Selecciona una opció:");
+        System.out.println("1. Editar un personatge");
+        System.out.println("2. Sortir");
+        int crearSortir = sc.nextInt();
+        switch (crearSortir) {
+            case 1:
+                editarPersonatge = false;
+                break;
+            case 2:
+                editarPersonatge = true;
+                System.out.println("Sortint...");
+                break;
+            default:
+                throw new AssertionError();
+        }
+        while (!editarPersonatge) {
+            for (int i = 0; i < personatges.size(); i++) {
+                String tipus = " ";
+                if (personatges.get(i) instanceof Nan) {
+                    tipus = "Nan";
+                } else if (personatges.get(i) instanceof Huma) {
+                    tipus = "Huma";
+                } else if (personatges.get(i) instanceof Mitja) {
+                    tipus = "Mitja";
+                } else if (personatges.get(i) instanceof Maia) {
+                    tipus = "Maia";
+                }
+
+                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+            }
+
+            System.out.println("Selecciona el personatge a editar:");
+            int opcio = sc.nextInt() - 1;
+
+            if (opcio >= 0 && opcio < personatges.size()) {
+                Personatge personatge = personatges.get(opcio);
+                System.out.println("Has seleccionat a " + personatge.getNom() + ". A continuació, pots editar les seves estadístiques.");
+
+                // Guardar estadísticas actuales
+                int forcaActual = personatge.getForca();
+                int velocitatActual = personatge.getVelocitat();
+                int intelActual = personatge.getIntelligencia();
+                int sortActual = personatge.getSort();
+                int puntsRestants = 60;
+
+                // Mostrar estadísticas actuales
+                System.out.println("Estadístiques actuals:");
+                System.out.println("Força: " + forcaActual);
+                System.out.println("Velocitat: " + velocitatActual);
+                System.out.println("Intel·ligència: " + intelActual);
+                System.out.println("Sort: " + sortActual);
+                System.out.println("Punts disponibles per repartir: " + puntsRestants);
+
+                // Solicitar las nuevas estadísticas
+                System.out.print("Nova força (màxim " + puntsRestants + " punts disponibles): ");
+                int novaForca = sc.nextInt();
+                while (novaForca > puntsRestants) {
+                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
+                    System.out.print("Nova força (màxim " + puntsRestants + " punts disponibles): ");
+                    novaForca = sc.nextInt();
+                }
+                puntsRestants -= novaForca;
+
+                System.out.print("Nova velocitat (màxim " + puntsRestants + " punts disponibles): ");
+                int novaVelocitat = sc.nextInt();
+                while (novaVelocitat > puntsRestants) {
+                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
+                    System.out.print("Nova velocitat (màxim " + puntsRestants + " punts disponibles): ");
+                    novaVelocitat = sc.nextInt();
+                }
+                puntsRestants -= novaVelocitat;
+
+                System.out.print("Nova intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
+                int novaIntel = sc.nextInt();
+                while (novaIntel > puntsRestants) {
+                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
+                    System.out.print("Nova intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
+                    novaIntel = sc.nextInt();
+                }
+                puntsRestants -= novaIntel;
+                System.out.print("Nova sort (màxim " + puntsRestants + " punts disponibles): ");
+                int novaSort = sc.nextInt();
+                while (novaSort > puntsRestants) {
+                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
+                    System.out.print("Nova sort (màxim " + puntsRestants + " punts disponibles): ");
+                    novaSort = sc.nextInt();
+                }
+                puntsRestants -= novaSort;
+
+                // Actualizar las estadísticas del personaje
+                personatge.setForca(forcaActual + novaForca);
+                personatge.setVelocitat(velocitatActual + novaVelocitat);
+                personatge.setIntelligencia(intelActual + novaIntel);
+                personatge.setSort(sortActual + novaSort);
+
+                System.out.println("Les estadístiques del personatge s'han actualitzat amb èxit.");
+            } else {
+                System.out.println("Opció no vàlida. Si us plau, selecciona un personatge vàlid.");
+            }
+        }
     }
 
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
