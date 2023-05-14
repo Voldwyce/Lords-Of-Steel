@@ -16,6 +16,7 @@ public class LordsOfSteel {
 
     public static void main(String[] args) {
 
+        // Clases proba
         Nan n1 = new Nan("Tirion", 8, 6, 13, 16, 16, 0, new Arma("Daga"));
         Huma h1 = new Huma("Luis", 13, 16, 6, 10, 6, 0, new Arma("Espasa"));
         Mitja mi1 = new Mitja("Frodo", 9, 7, 7, 15, 16, 0, new Arma("Martell"));
@@ -84,9 +85,10 @@ public class LordsOfSteel {
 
     public static void crearPersonatge(ArrayList<Personatge> personatges) {
         boolean crearPersonatge = false;
-        System.out.println("");
-        System.out.println("1. Crear un personatge");
-        System.out.println("2. Sortir");
+        System.out.println("+------------------------+");
+        System.out.println("|     (1) Crear          |");
+        System.out.println("|     (2) Sortir         |");
+        System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine());
@@ -197,7 +199,7 @@ public class LordsOfSteel {
             System.out.println("1. Ordre (Robatori de vida)");
             System.out.println("2. Caos (% Atac extra)");
             System.out.println("");
-            System.out.print("Seleccoó: ");
+            System.out.print("Selecció: ");
             int opcio2 = verificarMenu(sc.nextLine());
             if (opcio == 1 && opcio2 == 1) {
                 HumaOrdre nouHumaOrdre = new HumaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
@@ -232,10 +234,12 @@ public class LordsOfSteel {
                 personatges.add(nouMitjaCaos);
                 System.out.println("Personatge creat: " + nouMitjaCaos.getNom() + " (Caos)");
             }
-            System.out.println("");
-            System.out.println("1. Crear un personatge");
-            System.out.println("2. Sortir");
-            System.out.println("");
+           System.out.println("");
+        System.out.println("+------------------------+");
+        System.out.println("|     (1) Crear         |");
+        System.out.println("|     (2) Sortir         |");
+        System.out.println("+------------------------+");
+        System.out.println("");
             System.out.print("Selecciona una opció: ");
             crearSortir = verificarMenu(sc.nextLine());
             switch (crearSortir) {
@@ -264,6 +268,7 @@ public class LordsOfSteel {
         System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció: ");
+        System.out.println("");
         int crearSortir = verificarMenu(sc.nextLine());
         switch (crearSortir) {
             case 1:
@@ -292,7 +297,7 @@ public class LordsOfSteel {
                     tipus = "Maia";
                 }
 
-                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+                System.out.printf("%d %s\n", (i + 1), ".", personatges.get(i).getNom(), tipus);
             }
             System.out.println("");
             System.out.print("Personatge a esborrar: ");
@@ -371,21 +376,15 @@ public class LordsOfSteel {
                 Personatge personatge = personatges.get(opcio);
                 System.out.println("Has seleccionat a " + personatge.getNom() + ". A continuació, pots editar les seves estadístiques.");
 
-                // Guardar estadísticas actuales
-                int forcaActual = personatge.getForca();
-                int constitucioActual = personatge.getConstitucio();
-                int velocitatActual = personatge.getVelocitat();
-                int intelActual = personatge.getIntelligencia();
-                int sortActual = personatge.getSort();
                 int puntsRestants = 60;
 
                 // Mostrar estadísticas actuales
                 System.out.println("Estadístiques actuals:");
-                System.out.println("Força: " + forcaActual);
-                System.out.println("Constitucio: " + constitucioActual);
-                System.out.println("Velocitat: " + velocitatActual);
-                System.out.println("Intel·ligència: " + intelActual);
-                System.out.println("Sort: " + sortActual);
+                System.out.println("Força: " + personatge.getForca());
+                System.out.println("Constitucio: " + personatge.getConstitucio());
+                System.out.println("Velocitat: " + personatge.getVelocitat());
+                System.out.println("Intel·ligència: " + personatge.getIntelligencia());
+                System.out.println("Sort: " + personatge.getSort());
                 System.out.println("Punts disponibles per repartir: " + puntsRestants);
 
                 // Solicitar las nuevas estadísticas
@@ -471,26 +470,26 @@ public class LordsOfSteel {
 
         boolean combat = false;
 
+           System.out.println("");
+        System.out.println("+------------------------+");
+        System.out.println("|     (1) Combat         |");
+        System.out.println("|     (2) Sortir         |");
+        System.out.println("+------------------------+");
+        System.out.println("");
+        System.out.print("Selecciona una opció:");
+        int crearSortir = verificarMenu(sc.nextLine());
+        switch (crearSortir) {
+            case 1:
+                combat = false;
+                break;
+            case 2:
+                combat = true;
+                System.out.println("Sortint...");
+                break;
+            default:
+                throw new AssertionError();
+        }
         while (!combat) {
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Combat         |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció:");
-            int crearSortir = verificarMenu(sc.nextLine());
-            switch (crearSortir) {
-                case 1:
-                    combat = false;
-                    break;
-                case 2:
-                    combat = true;
-                    System.out.println("Sortint...");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
 
             boolean[] seleccionats = new boolean[personatges.size()];
             Personatge[] lluitador = new Personatge[2];
@@ -608,6 +607,12 @@ public class LordsOfSteel {
                 guanyador.subirDeNivel();
                 guanyador.calculaEstadistiquesSecundaries();
                 System.out.println("Felicitats " + guanyador.getNom() + " ha pujat de nivell!! " + "Lvl: " + guanyador.getNivell());
+                System.out.println("Noves estadistiques:");
+                System.out.println("Força: " + guanyador.getForca());
+                System.out.println("Constitucio: " + guanyador.getConstitucio());
+                System.out.println("Velocitat: " + guanyador.getVelocitat());
+                System.out.println("Intel·ligència: " + guanyador.getIntelligencia());
+                System.out.println("Sort: " + guanyador.getSort());
             }
 
             // Preguntar si se desea iniciar un nuevo combate o salir al menú principal
