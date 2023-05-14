@@ -29,16 +29,30 @@ public class LordsOfSteel {
         personatges.add(mi1);
         personatges.add(ma1);
 
+        System.out.println("        __                                           __");
+        System.out.println("       (**)                                         (**)");
+        System.out.println("       IIII                                         IIII");
+        System.out.println("       ####                                         ####");
+        System.out.println("       HHHH     	             LORDS                  HHHH");
+        System.out.println("       HHHH                                         HHHH");
+        System.out.println("       ####                                         ####");
+        System.out.println("    ___IIII___                                   ___IIII___");
+        System.out.println(" .-`_._\"**\"_._`-.                             .-`_._\"**\"_._`-.");
+        System.out.println("|/``  .`\\/`.  ``\\|            OF             |/``  .`\\/`.  ``\\|");
+        System.out.println("`     }    {     '                           `     }    {     '");
+        System.out.println("      ) () (                                       ) () (");
+        System.out.println("      ( :: )                                       ( :: )");
+        System.out.println("      | :: |                                       | :: |");
+        System.out.println("      | )( |                 STEEL                 | )( |");
+        System.out.println("      | || |                                       | || |");
+        System.out.println("      | || |                                       | || |");
+        System.out.println("      | || |                                       | || |");
+        System.out.println("      ( () )                                       ( () )");
+        System.out.println("       \\  /                                         \\  /");
+        System.out.println("        \\/                                           \\/");
         System.out.println("");
-        System.out.println(" L      OOOO   SSSSS ");
-        System.out.println(" L     O    O  S     ");
-        System.out.println(" L     O    O  SSSSS ");
-        System.out.println(" L     O    O      S ");
-        System.out.println(" L     O    O      S ");
-        System.out.println(" L     O    O  S   S ");
-        System.out.println(" LLLL   OOOO    SSS  ");
-
-        System.out.println("");
+        System.out.println("Pulsa para continuar: ");
+        sc.nextLine();
 
         boolean sortir = false;
 
@@ -176,8 +190,10 @@ public class LordsOfSteel {
             puntsRestants -= sort;
 
             System.out.println("Et queden " + puntsRestants + " punts per distribuir.");
+            System.out.println("");
 
             System.out.println("Selecciona una opció d'arma:");
+            System.out.println("");
             System.out.println("1. Daga");
             System.out.println("2. Espassa");
             System.out.println("3. Martell");
@@ -239,7 +255,7 @@ public class LordsOfSteel {
             }
             System.out.println("");
             System.out.println("+------------------------+");
-            System.out.println("|     (1) Crear         |");
+            System.out.println("|     (1) Crear          |");
             System.out.println("|     (2) Sortir         |");
             System.out.println("+------------------------+");
             System.out.println("");
@@ -345,6 +361,7 @@ public class LordsOfSteel {
         System.out.println("");
         System.out.print("Selecciona una opció:");
         int crearSortir = verificarMenu(sc.nextLine());
+        System.out.println("");
         switch (crearSortir) {
             case 1:
                 editarPersonatge = false;
@@ -371,7 +388,7 @@ public class LordsOfSteel {
 
                 System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
             }
-
+            System.out.println("");
             System.out.println("Selecciona el personatge a editar:");
             int opcio = verificarMenu(sc.nextLine()) - 1;
 
@@ -379,7 +396,7 @@ public class LordsOfSteel {
                 Personatge personatge = personatges.get(opcio);
                 System.out.println("Has seleccionat a " + personatge.getNom() + ". A continuació, pots editar les seves estadístiques.");
 
-                int puntsRestants = 60;
+                int puntsRestants = personatge.getConstitucio() + personatge.getForca() + personatge.getIntelligencia() + personatge.getSort() + personatge.getVelocitat();
 
                 // Mostrar estadísticas actuales
                 System.out.println("Estadístiques actuals:");
@@ -392,47 +409,47 @@ public class LordsOfSteel {
 
                 // Solicitar las nuevas estadísticas
                 System.out.print("Nova força (màxim " + puntsRestants + " punts disponibles): ");
-                int novaForca = sc.nextInt();
+                int novaForca = verificarMenu(sc.nextLine());
                 while (novaForca > puntsRestants) {
                     System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
                     System.out.print("Nova força (màxim " + puntsRestants + " punts disponibles): ");
-                    novaForca = sc.nextInt();
+                    novaForca = verificarMenu(sc.nextLine());
                 }
                 puntsRestants -= novaForca;
 
                 System.out.print("Nova constitucio (màxim " + puntsRestants + " punts disponibles): ");
-                int novaConstitucio = sc.nextInt();
+                int novaConstitucio = verificarMenu(sc.nextLine());
                 while (novaConstitucio > puntsRestants) {
                     System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
                     System.out.print("Nova constitucio (màxim " + puntsRestants + " punts disponibles): ");
-                    novaForca = sc.nextInt();
+                    novaForca = verificarMenu(sc.nextLine());
                 }
                 puntsRestants -= novaConstitucio;
 
                 System.out.print("Nova velocitat (màxim " + puntsRestants + " punts disponibles): ");
-                int novaVelocitat = sc.nextInt();
+                int novaVelocitat = verificarMenu(sc.nextLine());
                 while (novaVelocitat > puntsRestants) {
                     System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
                     System.out.print("Nova velocitat (màxim " + puntsRestants + " punts disponibles): ");
-                    novaVelocitat = sc.nextInt();
+                    novaVelocitat = verificarMenu(sc.nextLine());
                 }
                 puntsRestants -= novaVelocitat;
 
                 System.out.print("Nova intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-                int novaIntel = sc.nextInt();
+                int novaIntel = verificarMenu(sc.nextLine());
                 while (novaIntel > puntsRestants) {
                     System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
                     System.out.print("Nova intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-                    novaIntel = sc.nextInt();
+                    novaIntel = verificarMenu(sc.nextLine());
                 }
                 puntsRestants -= novaIntel;
 
                 System.out.print("Nova sort (màxim " + puntsRestants + " punts disponibles): ");
-                int novaSort = sc.nextInt();
+                int novaSort = verificarMenu(sc.nextLine());
                 while (novaSort > puntsRestants) {
                     System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
                     System.out.print("Nova sort (màxim " + puntsRestants + " punts disponibles): ");
-                    novaSort = sc.nextInt();
+                    novaSort = verificarMenu(sc.nextLine());
                 }
                 puntsRestants -= novaSort;
 
@@ -643,7 +660,6 @@ public class LordsOfSteel {
         try {
             numero = Integer.parseInt(valor);
         } catch (NumberFormatException e) {
-            System.out.println("Error: Has introduït un valor no vàlid. Siusplau, introdueix un número enter.");
             System.out.print("Introdueix un valor vàlid: ");
             return verificarMenu(sc.nextLine());
         }
