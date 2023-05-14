@@ -520,14 +520,22 @@ public class LordsOfSteel {
             while (atacant.getPs() > 0 && defensor.getPs() > 0) {
                 System.out.println(atacant.getNom() + " Ataca");
 
-                int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-                System.out.println("Valor daus: " + valor);
+                int valorDau1 = dau1.llencar();
+                int valorDau2 = dau2.llencar();
+                int valorDau3 = dau3.llencar();
+                System.out.println("Daus atacant:");
+                System.out.println("Valor daus: " + "Dau 1: " + valorDau1 + " Dau 2: " + valorDau2 + " Dau 3: " + valorDau3);
+                System.out.println("");
 
-                if (valor <= atacant.getPa()) {
-                    valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-                    System.out.println("Valor daus: " + valor);
+                if (valorDau1 <= atacant.getPa() || valorDau2 <= atacant.getPa() || valorDau2 <= atacant.getPa()) {
+                    valorDau1 = dau1.llencar();
+                    valorDau2 = dau2.llencar();
+                    valorDau3 = dau3.llencar();
+                    System.out.println("Daus defensor: ");
+                    System.out.println("Valor daus: " + "Dau 1: " + valorDau1 + " Dau 2: " + valorDau2 + " Dau 3: " + valorDau3);
+                    System.out.println("");
 
-                    if (valor > defensor.getPe()) {
+                    if (valorDau1 > defensor.getPe() || valorDau2> defensor.getPe() || valorDau2 > defensor.getPe()) {
                         defensor.setPs(defensor.getPs() - atacant.getPd());
                         System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd());
                         System.out.println("Vida restant: " + defensor.getPs());
@@ -546,6 +554,8 @@ public class LordsOfSteel {
                                 defensor.setPs(defensor.getPs() - atacant.getPd());
                                 System.out.println(defensor.getNom() + " ha sigut atacat de nou, ha perdut: " + atacant.getPd());
                                 System.out.println("Vida restant: " + defensor.getPs());
+                            } else {
+                                System.out.println("Ha fallat l'atac extra");
                             }
                         }
 
