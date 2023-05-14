@@ -378,7 +378,7 @@ public class LordsOfSteel {
         System.out.println("|     (2) Sortir         |");
         System.out.println("+------------------------+");
         System.out.println("");
-        System.out.print("Selecciona una opció:");
+        System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         System.out.println("");
         switch (crearSortir) {
