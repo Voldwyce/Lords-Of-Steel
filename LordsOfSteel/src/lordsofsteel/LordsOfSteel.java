@@ -513,29 +513,23 @@ public class LordsOfSteel {
             Dau dau1 = new Dau();
             Dau dau2 = new Dau();
             Dau dau3 = new Dau();
-            Dau dauCaos = new Dau();
 
             int ronda = 0;
 
             while (atacant.getPs() > 0 && defensor.getPs() > 0) {
-                System.out.println(atacant.getNom() + " Ataca");
+                System.out.println(atacant.getNom() + " Intenta atacar");
 
-                int valorDau1 = dau1.llencar();
-                int valorDau2 = dau2.llencar();
-                int valorDau3 = dau3.llencar();
-                System.out.println("Daus atacant:");
-                System.out.println("Valor daus: " + "Dau 1: " + valorDau1 + " Dau 2: " + valorDau2 + " Dau 3: " + valorDau3);
+                int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+                System.out.println("Valor daus atacant: " + valor);
                 System.out.println("");
 
-                if (valorDau1 <= atacant.getPa() || valorDau2 <= atacant.getPa() || valorDau2 <= atacant.getPa()) {
-                    valorDau1 = dau1.llencar();
-                    valorDau2 = dau2.llencar();
-                    valorDau3 = dau3.llencar();
-                    System.out.println("Daus defensor: ");
-                    System.out.println("Valor daus: " + "Dau 1: " + valorDau1 + " Dau 2: " + valorDau2 + " Dau 3: " + valorDau3);
+                if (valor <= atacant.getPa()) {
+                    valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+                    System.out.println(defensor.getNom() + " Intenta de defensarse");
+                    System.out.println("Valor daus defensor: " + valor);
                     System.out.println("");
 
-                    if (valorDau1 > defensor.getPe() || valorDau2> defensor.getPe() || valorDau2 > defensor.getPe()) {
+                    if (valor > defensor.getPe()) {
                         defensor.setPs(defensor.getPs() - atacant.getPd());
                         System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd());
                         System.out.println("Vida restant: " + defensor.getPs());
@@ -549,14 +543,13 @@ public class LordsOfSteel {
                             }
                         }
                         if (atacant instanceof Caos) {
-                            boolean atacarDeNou = atacant.atacPAReduida(dauCaos);
+                            boolean atacarDeNou = atacant.atacPAReduida(dau1,dau2,dau3);
                             if (atacarDeNou) {
                                 defensor.setPs(defensor.getPs() - atacant.getPd());
                                 System.out.println(defensor.getNom() + " ha sigut atacat de nou, ha perdut: " + atacant.getPd());
                                 System.out.println("Vida restant: " + defensor.getPs());
-                            } else {
-                                System.out.println("Ha fallat l'atac extra");
-                            }
+                            } else
+                                System.out.println("Ha fallat l'atac extra ");
                         }
 
                     } else {
@@ -565,10 +558,12 @@ public class LordsOfSteel {
                 } else {
                     System.out.println(defensor.getNom() + " ha evitat l'atac");
                 }
-
+                System.out.println("");
                 System.out.println("Vida de " + atacant.getNom() + ": " + atacant.getPs());
                 System.out.println("Vida de " + defensor.getNom() + ": " + defensor.getPs());
+                System.out.println("");
                 System.out.println("Ronda: " + ronda);
+                System.out.println("----------");
                 ronda++;
 
                 // Intercambi rols
@@ -586,7 +581,7 @@ public class LordsOfSteel {
             lluitador[1].setPs(vida2);
 
             guanyador.setPex(guanyador.getPex() + perdedor.getPs());
-            System.out.println("El guanyador te: " + guanyador.getPex());
+            System.out.println("El guanyador ha obtingut: " + guanyador.getPex() + " punts d'experiencia");
             if (guanyador.getPex() >= guanyador.getPexSiguienteNivel()) {
                 guanyador.subirDeNivel();
                 guanyador.calculaEstadistiquesSecundaries();
