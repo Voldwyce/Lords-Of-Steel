@@ -534,7 +534,7 @@ public class LordsOfSteel {
 
         if (personatges.size() < 2) {
             System.out.println("");
-            System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+            System.out.println(colorVermell + "No hi ha personatges suficients, minim 2!!" + colorReset);
             combat = true;
 
         }
