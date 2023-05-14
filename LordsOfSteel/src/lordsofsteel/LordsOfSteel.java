@@ -25,9 +25,9 @@ public class LordsOfSteel {
     public static void main(String[] args) {
 
         // Clases proba
-        Nan n1 = new NanOrdre("Tirion", 8, 6, 13, 16, 16, 0, new Arma("Daga"));
-        Huma h1 = new HumaOrdre("Luis", 13, 16, 6, 10, 6, 0, new Arma("Espasa"));
-        Mitja mi1 = new MitjaCaos("Frodo", 9, 7, 7, 15, 16, 0, new Arma("Martell"));
+        Nan n1 = new NanOrdre("Tirion", 9, 6, 13, 16, 16, 0, new Arma("Daga"));
+        Huma h1 = new HumaOrdre("Luis", 15, 18, 8, 12, 7, 0, new Arma("Espasa"));
+        Mitja mi1 = new MitjaCaos("Frodo", 15, 7, 7, 15, 16, 0, new Arma("Martell"));
         Maia ma1 = new MaiaCaos("Nilf", 7, 9, 12, 15, 17, 0, new Arma("Daga"));
 
         // Personatge[] personatges = new Personatge[4];
@@ -39,26 +39,26 @@ public class LordsOfSteel {
 
         System.out.println("");
         System.out.println(colorVermell + "        __                                           __");
-        System.out.println(colorVermell +"       (**)                                         (**)");
-        System.out.println(colorVermell +"       IIII                                         IIII");
-        System.out.println(colorVermell +"       ####                                         ####");
-        System.out.println(colorVermell +"       HHHH     	             " + colorBlanc + "LORDS" + colorVermell + "                  HHHH");
-        System.out.println(colorVermell +"       HHHH                                         HHHH");
-        System.out.println(colorVermell +"       ####                                         ####");
-        System.out.println(colorVermell +"    ___IIII___                                   ___IIII___");
-        System.out.println(colorVermell +" .-`_._\"**\"_._`-.                             .-`_._\"**\"_._`-.");
-        System.out.println(colorVermell +"|/``  .`\\/`.  ``\\|            "+ colorBlanc + "OF" + colorVermell+ "             |/``  .`\\/`.  ``\\|");
-        System.out.println(colorVermell +"`     }    {     '                           `     }    {     '");
-        System.out.println(colorVermell +"      ) () (                                       ) () (");
-        System.out.println(colorVermell +"      ( :: )                                       ( :: )");
-        System.out.println(colorVermell +"      | :: |                                       | :: |");
-        System.out.println(colorVermell +"      | )( |                 " + colorBlanc + "STEEL" + colorVermell + "                 | )( |");
-        System.out.println(colorVermell +"      | || |                                       | || |");
-        System.out.println(colorVermell +"      | || |                                       | || |");
-        System.out.println(colorVermell +"      | || |                                       | || |");
-        System.out.println(colorVermell +"      ( () )                                       ( () )");
-        System.out.println(colorVermell +"       \\  /                                         \\  /");
-        System.out.println(colorVermell +"        \\/                                           \\/");
+        System.out.println(colorVermell + "       (**)                                         (**)");
+        System.out.println(colorVermell + "       IIII                                         IIII");
+        System.out.println(colorVermell + "       ####                                         ####");
+        System.out.println(colorVermell + "       HHHH     	             " + colorBlanc + "LORDS" + colorVermell + "                  HHHH");
+        System.out.println(colorVermell + "       HHHH                                         HHHH");
+        System.out.println(colorVermell + "       ####                                         ####");
+        System.out.println(colorVermell + "    ___IIII___                                   ___IIII___");
+        System.out.println(colorVermell + " .-`_._\"**\"_._`-.                             .-`_._\"**\"_._`-.");
+        System.out.println(colorVermell + "|/``  .`\\/`.  ``\\|            " + colorBlanc + "OF" + colorVermell + "             |/``  .`\\/`.  ``\\|");
+        System.out.println(colorVermell + "`     }    {     '                           `     }    {     '");
+        System.out.println(colorVermell + "      ) () (                                       ) () (");
+        System.out.println(colorVermell + "      ( :: )                                       ( :: )");
+        System.out.println(colorVermell + "      | :: |                                       | :: |");
+        System.out.println(colorVermell + "      | )( |                 " + colorBlanc + "STEEL" + colorVermell + "                 | )( |");
+        System.out.println(colorVermell + "      | || |                                       | || |");
+        System.out.println(colorVermell + "      | || |                                       | || |");
+        System.out.println(colorVermell + "      | || |                                       | || |");
+        System.out.println(colorVermell + "      ( () )                                       ( () )");
+        System.out.println(colorVermell + "       \\  /                                         \\  /");
+        System.out.println(colorVermell + "        \\/                                           \\/");
         System.out.println(colorReset);
         System.out.println("Pulsa enter per continuar: ");
         sc.nextLine();
@@ -99,21 +99,21 @@ public class LordsOfSteel {
                 case 5:
                     sortir = true;
                     System.out.println("");
-                            System.out.println(colorVerd + "         _.---,._,'");
-        System.out.println(colorVerd + "       /' _.--.<");
-        System.out.println(colorVerd + "         /'     `'");
-        System.out.println(colorVerd + "       /' _.---._____");
-        System.out.println(colorVerd + "       \\.'   ___, .-'`");
-        System.out.println(colorVerd + "           /'    \\\\             .");
-        System.out.println(colorVerd + "         /'       `-.          -|-");
-        System.out.println(colorVerd + "        |                       |");
-        System.out.println(colorVerd + "        |                   .-'~~~`-.");
-        System.out.println(colorVerd + "        |                 .'         `.");
-        System.out.println(colorVerd + "        |                 |  A D E U  |");
-        System.out.println(colorVerd + "        |                 |           |");
-        System.out.println(colorVerd + "        |                 |           |");
-        System.out.println(colorVerd + "         \\              \\\\|           |//");
-        System.out.println(colorVerd + "   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    System.out.println(colorVerd + "         _.---,._,'");
+                    System.out.println(colorVerd + "       /' _.--.<");
+                    System.out.println(colorVerd + "         /'     `'");
+                    System.out.println(colorVerd + "       /' _.---._____");
+                    System.out.println(colorVerd + "       \\.'   ___, .-'`");
+                    System.out.println(colorVerd + "           /'    \\\\             .");
+                    System.out.println(colorVerd + "         /'       `-.          -|-");
+                    System.out.println(colorVerd + "        |                       |");
+                    System.out.println(colorVerd + "        |                   .-'~~~`-.");
+                    System.out.println(colorVerd + "        |                 .'         `.");
+                    System.out.println(colorVerd + "        |                 |  A D E U  |");
+                    System.out.println(colorVerd + "        |                 |           |");
+                    System.out.println(colorVerd + "        |                 |           |");
+                    System.out.println(colorVerd + "         \\              \\\\|           |//");
+                    System.out.println(colorVerd + "   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
                     System.out.println(colorReset);
                     break;
                 default:
@@ -194,7 +194,8 @@ public class LordsOfSteel {
 
             puntsRestants -= sort;
 
-            System.out.println("Et queden " + puntsRestants + " punts per distribuir.");
+            System.out.println("");
+            System.out.println(colorVermell + "Et queden " + puntsRestants + " punts per distribuir, pots asignarlos al editar el personatge" + colorReset);
             System.out.println("");
 
             System.out.println("Selecciona una opció d'arma:");
@@ -233,31 +234,31 @@ public class LordsOfSteel {
             } else if (opcio == 1 && opcio2 == 2) {
                 HumaCaos nouHumaCaos = new HumaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouHumaCaos);
-                System.out.println("Personatge creat: " + colorVerd + nouHumaCaos.getNom() + colorLila +" (Caos)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouHumaCaos.getNom() + colorLila + " (Caos)" + colorReset);
             } else if (opcio == 2 && opcio2 == 1) {
                 NanOrdre nouNanOrdre = new NanOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouNanOrdre);
-                System.out.println("Personatge creat: " + colorVerd + nouNanOrdre.getNom() + colorTaronja +" (Ordre)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouNanOrdre.getNom() + colorTaronja + " (Ordre)" + colorReset);
             } else if (opcio == 2 && opcio2 == 2) {
                 NanCaos nouNanCaos = new NanCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouNanCaos);
-                System.out.println("Personatge creat: " + colorVerd + nouNanCaos.getNom() + colorLila +" (Caos)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouNanCaos.getNom() + colorLila + " (Caos)" + colorReset);
             } else if (opcio == 3 && opcio2 == 1) {
                 MaiaOrdre nouMaiaOrdre = new MaiaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMaiaOrdre);
-                System.out.println("Personatge creat: " + colorVerd + nouMaiaOrdre.getNom() + colorTaronja +" (Ordre)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouMaiaOrdre.getNom() + colorTaronja + " (Ordre)" + colorReset);
             } else if (opcio == 3 && opcio2 == 2) {
                 MaiaCaos nouMaiaCaos = new MaiaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMaiaCaos);
-                System.out.println("Personatge creat: " + colorVerd + nouMaiaCaos.getNom() + colorLila +" (Caos)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouMaiaCaos.getNom() + colorLila + " (Caos)" + colorReset);
             } else if (opcio == 4 && opcio2 == 1) {
                 MitjaOrdre nouMitjaOrdre = new MitjaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMitjaOrdre);
-                System.out.println("Personatge creat: " + colorVerd + nouMitjaOrdre.getNom() + colorTaronja +" (Ordre)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouMitjaOrdre.getNom() + colorTaronja + " (Ordre)" + colorReset);
             } else if (opcio == 2 && opcio2 == 2) {
                 MitjaCaos nouMitjaCaos = new MitjaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMitjaCaos);
-                System.out.println("Personatge creat: " + colorVerd + nouMitjaCaos.getNom() + colorLila +" (Caos)" + colorReset);
+                System.out.println("Personatge creat: " + colorVerd + nouMitjaCaos.getNom() + colorLila + " (Caos)" + colorReset);
             }
             System.out.println("");
             System.out.println("+------------------------+");
@@ -322,7 +323,7 @@ public class LordsOfSteel {
                     tipus = "Maia";
                 }
 
-                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+                System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
             }
             System.out.println("");
             System.out.print("Personatge a esborrar: ");
@@ -330,7 +331,7 @@ public class LordsOfSteel {
 
             if (opcio >= 0 && opcio < personatges.size()) {
                 Personatge personatgeEsborrat = personatges.remove(opcio);
-                System.out.println("Personatge " + personatgeEsborrat.getNom() + colorVermell + " esborrat" + colorReset + " amb èxit.");
+                System.out.println("Personatge " + colorVermell + personatgeEsborrat.getNom() + " esborrat" + colorReset + " amb èxit.");
             } else {
                 System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
             }
@@ -379,6 +380,10 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
+        if (personatges.size() < 2) {
+            System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+            editarPersonatge = true;
+        }
         while (!editarPersonatge) {
             for (int i = 0; i < personatges.size(); i++) {
                 String tipus = " ";
@@ -392,7 +397,7 @@ public class LordsOfSteel {
                     tipus = "Maia";
                 }
 
-                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+                System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
             }
             System.out.println("");
             System.out.println("Selecciona el personatge a editar:");
@@ -403,6 +408,9 @@ public class LordsOfSteel {
                 System.out.println("Has seleccionat a " + personatge.getNom() + ". A continuació, pots editar les seves estadístiques.");
 
                 int puntsRestants = personatge.getConstitucio() + personatge.getForca() + personatge.getIntelligencia() + personatge.getSort() + personatge.getVelocitat();
+                if (puntsRestants < 60) {
+                    puntsRestants = 60;
+                }
 
                 // Mostrar estadísticas actuales
                 System.out.println("Estadístiques actuals:");
@@ -445,7 +453,7 @@ public class LordsOfSteel {
                 personatge.setVelocitat(novaVelocitat);
                 personatge.setIntelligencia(novaIntel);
                 personatge.setSort(novaSort);
-                
+
                 System.out.println("");
                 System.out.println("Les estadístiques del personatge s'han actualitzat amb" + colorVerd + " èxit." + colorReset);
             } else {
@@ -496,6 +504,12 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
+
+        if (personatges.size() < 2) {
+            System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+            combat = true;
+        }
+
         while (!combat) {
 
             boolean[] seleccionats = new boolean[personatges.size()];
@@ -518,7 +532,7 @@ public class LordsOfSteel {
                             tipus = "Maia";
                         }
 
-                        System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+                        System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
                     }
 
                 }
