@@ -1,5 +1,6 @@
 # LordsOfSteel
 
+Release 1.0
 
 ## Descripció
 Lords Of Steel és un joc RPG basat en el combat tàctic entre personatges amb diferents classes i habilitats. El joc permet als jugadors crear, gestionar i lluitar amb els seus propis personatges en emocionants batalles.
