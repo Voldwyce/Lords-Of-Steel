@@ -294,7 +294,6 @@ public class LordsOfSteel {
         System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció: ");
-        System.out.println("");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         switch (crearSortir) {
             case 1:
@@ -307,10 +306,7 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
-        if (personatges.size() < 3) {
-            System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
-            borrarPersonatge = true;
-        }
+
         System.out.println("");
         while (!borrarPersonatge) {
 
@@ -335,6 +331,11 @@ public class LordsOfSteel {
                 }
 
                 System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
+            }
+            if (personatges.size() <= 0) {
+                System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+                borrarPersonatge = true;
+                break;
             }
             System.out.println("");
             System.out.print("Personatge a esborrar: ");
@@ -391,10 +392,7 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
-        if (personatges.size() <= 0) {
-            System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
-            editarPersonatge = true;
-        }
+
         while (!editarPersonatge) {
             for (int i = 0; i < personatges.size(); i++) {
                 String tipus = " ";
@@ -417,6 +415,11 @@ public class LordsOfSteel {
                 }
 
                 System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
+            }
+            if (personatges.size() <= 0) {
+                System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+                editarPersonatge = true;
+                break;
             }
             System.out.println("");
             System.out.println("Selecciona el personatge a editar:");
@@ -530,8 +533,10 @@ public class LordsOfSteel {
         }
 
         if (personatges.size() < 2) {
+            System.out.println("");
             System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
             combat = true;
+
         }
 
         while (!combat) {
@@ -543,54 +548,54 @@ public class LordsOfSteel {
             for (int selec = 1; selec <= 2; selec++) {
                 boolean personatgeRepetit = true;
                 while (personatgeRepetit) {
-                for (int i = 0; i < personatges.size(); i++) {
-                    if (!seleccionats[i]) {
+                    for (int i = 0; i < personatges.size(); i++) {
+                        if (!seleccionats[i]) {
 
-                        String tipus = " ";
-                        if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
-                            tipus = "Nan" + colorVermell + " Caos" + colorReset;
-                        } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
-                            tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
-                        } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
-                            tipus = "Huma" + colorVermell + " Caos" + colorReset;
-                        } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
-                            tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
-                        } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
-                            tipus = "Mitja" + colorVermell + " Caos" + colorReset;
-                        } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
-                            tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
-                        } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
-                            tipus = "Maia" + colorVermell + " Caos" + colorReset;
-                        } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
-                            tipus = "Maia" + colorTaronja + " Caos" + colorReset;
+                            String tipus = " ";
+                            if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
+                                tipus = "Nan" + colorVermell + " Caos" + colorReset;
+                            } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
+                                tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
+                            } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
+                                tipus = "Huma" + colorVermell + " Caos" + colorReset;
+                            } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
+                                tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
+                            } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
+                                tipus = "Mitja" + colorVermell + " Caos" + colorReset;
+                            } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
+                                tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
+                            } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
+                                tipus = "Maia" + colorVermell + " Caos" + colorReset;
+                            } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
+                                tipus = "Maia" + colorTaronja + " Caos" + colorReset;
+                            }
+
+                            System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
                         }
 
-                        System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
                     }
 
-                }
-                
-                System.out.printf("\nTria un personatge " + selec + " : ");
-            int opcio = verificarMenu(sc.nextLine(), personatges.size());
+                    System.out.printf("\nTria un personatge " + selec + " : ");
+                    int opcio = verificarMenu(sc.nextLine(), personatges.size());
 
-            if (!seleccionats[opcio - 1]) {
-                seleccionats[opcio - 1] = true;
-                lluitador[selec - 1] = personatges.get(opcio - 1);
-                personatgeRepetit = false;
+                    if (!seleccionats[opcio - 1]) {
+                        seleccionats[opcio - 1] = true;
+                        lluitador[selec - 1] = personatges.get(opcio - 1);
+                        personatgeRepetit = false;
 
-                System.out.println("Personatge triat: " + colorVerd + personatges.get(opcio - 1).getNom() + colorReset);
-                System.out.println("");
-                if (personatges.get(opcio - 1).getPs() == 0) {
-                    System.out.println("");
-                    System.out.println(colorVermell + "El personatge: " + personatges.get(opcio - 1).getNom() + " s'ha suicidat" + colorReset);
-                    System.out.println("");
+                        System.out.println("Personatge triat: " + colorVerd + personatges.get(opcio - 1).getNom() + colorReset);
+                        System.out.println("");
+                        if (personatges.get(opcio - 1).getPs() == 0) {
+                            System.out.println("");
+                            System.out.println(colorVermell + "El personatge: " + personatges.get(opcio - 1).getNom() + " s'ha suicidat" + colorReset);
+                            System.out.println("");
+                        }
+                    } else {
+                        System.out.println("");
+                        System.out.println(colorVermell + "Aquest personatge ja ha estat seleccionat. Tria un altre." + colorReset);
+                    }
                 }
-            } else {
-                System.out.println("");
-                System.out.println(colorVermell + "Aquest personatge ja ha estat seleccionat. Tria un altre." + colorReset);
             }
-        }
-    }
 
             // Inici combat
             Personatge atacant = lluitador[0];
@@ -670,9 +675,10 @@ public class LordsOfSteel {
             lluitador[0].setPs(vida1);
             lluitador[1].setPs(vida2);
 
-            guanyador.setPex(guanyador.getPex() + perdedor.getPs());
             System.out.println("");
-            System.out.println("El guanyador ha obtingut: " + perdedor.getPs() + " punts d'experiencia --> " + guanyador.getPex()); 
+            System.out.println("El guanyador ha obtingut: " + perdedor.getPs() + " punts d'experiencia");
+            System.out.println("Experiencia " + guanyador.getPex() + " --> " + (guanyador.getPex() + perdedor.getPs()));
+            guanyador.setPex(guanyador.getPex() + perdedor.getPs());
             if (guanyador.getPex() >= guanyador.getPexSiguienteNivel()) {
                 guanyador.subirDeNivel();
                 System.out.println("Felicitats " + colorVerd + guanyador.getNom() + colorReset + " ha pujat de nivell!! " + colorBlauCel + "Lvl: " + guanyador.getNivell() + colorReset);

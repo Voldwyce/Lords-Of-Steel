@@ -163,7 +163,17 @@ public abstract class Personatge {
         this.intelligencia++;
         this.sort++;
         this.velocitat++;
-        this.pex = 0;
+            if (this.nivell == 1) {
+                this.pex -= 100;
+            } else if (this.nivell == 1) {
+                this.pex -= 200;
+            } else if (this.nivell == 2) {
+                this.pex -= 500;
+            } else if (this.nivell == 3) {
+                this.pex -= 1000;
+            } else if (this.nivell == 4) {
+                this.pex -= 2000;
+            }
          calculaEstadistiquesSecundaries();
     }
 
