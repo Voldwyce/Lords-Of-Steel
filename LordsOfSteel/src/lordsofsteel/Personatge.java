@@ -7,7 +7,7 @@ package lordsofsteel;
  *
  * @author David
  */
-public class Personatge {
+public abstract class Personatge {
 
 
     protected int forca;
@@ -22,16 +22,7 @@ public class Personatge {
     protected int pd;
     protected int pa;
     protected int pe;
-    protected int niv;
     protected int pex;
-
-    public int getNiv() {
-        return niv;
-    }
-
-    public void setNiv(int niv) {
-        this.niv = niv;
-    }
 
     public String getNom() {
         return nom;
@@ -167,7 +158,7 @@ public class Personatge {
     }
      
         public void subirDeNivel(){
-        this.niv++;
+        this.nivell++;
         this.constitucio++;
         this.forca++;
         this.intelligencia++;
@@ -185,20 +176,31 @@ public class Personatge {
     }
     
     public int getPexSiguienteNivel(){
-        switch(this.niv){
-            case 1:
+        switch(this.nivell){
+            case 0:
                 return 100;
-            case 2:
+            case 1:
                 return 200;
-            case 3:
+            case 2:
                 return 500;
-            case 4:
+            case 3:
                 return 1000;
-            case 5:
+            case 4:
                 return 2000;
             default:
                 return Integer.MAX_VALUE;
         }
+    }
+
+    public boolean atacPAReduida(Dau ...daus) {
+          int sum = 0;
+        for (Dau dau : daus) {
+            sum += dau.llencar();
+        }
+        
+        int paReducida = getPa() / 2;
+        
+        return sum > paReducida;
     }
         
 
