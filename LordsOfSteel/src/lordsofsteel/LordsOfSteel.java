@@ -672,10 +672,9 @@ public class LordsOfSteel {
 
             guanyador.setPex(guanyador.getPex() + perdedor.getPs());
             System.out.println("");
-            System.out.println("El guanyador ha obtingut: " + guanyador.getPex() + " punts d'experiencia");
+            System.out.println("El guanyador ha obtingut: " + perdedor.getPs() + " punts d'experiencia --> " + guanyador.getPex()); 
             if (guanyador.getPex() >= guanyador.getPexSiguienteNivel()) {
                 guanyador.subirDeNivel();
-                guanyador.calculaEstadistiquesSecundaries();
                 System.out.println("Felicitats " + colorVerd + guanyador.getNom() + colorReset + " ha pujat de nivell!! " + colorBlauCel + "Lvl: " + guanyador.getNivell() + colorReset);
                 System.out.println("");
                 System.out.println("Noves estadistiques:");
@@ -692,7 +691,7 @@ public class LordsOfSteel {
             System.out.print("Selecció: ");
             String opcio = sc.nextLine().toLowerCase();
             while (!opcio.equalsIgnoreCase("s") && !opcio.equalsIgnoreCase("n")) {
-                System.out.println(colorVerd + "Input incorrecte" + colorReset);
+                System.out.println(colorVermell + "Input incorrecte" + colorReset);
                 System.out.print("Selecció: ");
                 opcio = sc.nextLine();
             }
