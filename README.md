@@ -1,92 +1,41 @@
 # LordsOfSteel
 
 
+## Descripció
+Lords Of Steel és un joc RPG basat en el combat tàctic entre personatges amb diferents classes i habilitats. El joc permet als jugadors crear, gestionar i lluitar amb els seus propis personatges en emocionants batalles.
 
-## Getting started
+## Característiques
+El joc Lords Of Steel ofereix diverses característiques emocionants:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+· Afegir un nou personatge: Els jugadors poden crear nous personatges amb diferents classes, habilitats i estadístiques per adaptar-se al seu estil de joc preferit.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+· Esborrar un personatge: Es permet als jugadors eliminar personatges existents del seu repertori si ja no els desitgen utilitzar.
 
-## Add your files
+· Editar un personatge: Els jugadors tenen l'opció de modificar les característiques, habilitats o estadístiques dels seus personatges existents per millorar-los o      adaptar-los a nous desafiaments.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+· Iniciar un combat: El joc permet als jugadors enfrontar-se en combats tàctics automàtics amb els seus personatges. Els jugadors han de triar els seus personatges i enfrontar-los en emocionants batalles.
 
-```
-cd existing_repo
-git remote add origin https://git.copernic.cat/pena.armengol.david/lordsofsteel.git
-git branch -M main
-git push -uf origin main
-```
+· Interfície cuidada: El joc ofereix una interfície de joc ben dissenyada i intuïtiva per proporcionar una experiència de joc agradable i fàcil d'usar.
 
-## Integrate with your tools
+· Combats automàtics amb registre: Durant els combats, el joc mostra un registre de les accions que es produeixen, permetent als jugadors seguir el desenvolupament de la batalla i veure els resultats de les seves estratègies.
 
-- [ ] [Set up project integrations](http://git.copernic.cat/pena.armengol.david/lordsofsteel/-/settings/integrations)
+· Diferents classes i combinacions: El joc ofereix una varietat de classes de personatges amb habilitats úniques. Els jugadors poden experimentar i crear combinacions úniques de personatges per aconseguir un avantatge en el combat.
 
-## Collaborate with your team
+· Sistema de nivell: Els personatges poden guanyar experiència i pujar de nivell en base al seu rendiment en el combat. Això permet millorar les seves estadístiques i desbloquejar noves habilitats per fer-los més poderosos.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+· Armes: El joc ofereix una varietat d'armes amb diferents atributs i efectes. Els jugadors poden equipar els seus personatges amb armes per millorar les seves habilitats de combat.
 
-## Test and Deploy
+## Requisits del sistema
+Per poder jugar a Lords Of Steel, es requereix:
 
-Use the built-in continuous integration in GitLab.
+· Java 8 o superior instal·lat en el sistema.
+· Una màquina amb suficient potència per executar el joc sense problemes.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Instruccions d'ús
+· Descarrega el codi font de Lords Of Steel des del repositori.
 
-***
+· Compila el codi font per generar l'executable del joc.
 
-# Editing this README
+· Executa el joc mitjançant la comanda java LordsOfSteel.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+· Segueix les instruccions que apareixen a la pantalla per gestionar els personatges, iniciar combats i divertirte en aquest emocionant mon!!
