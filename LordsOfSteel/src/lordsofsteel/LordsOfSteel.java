@@ -403,67 +403,69 @@ public class LordsOfSteel {
         boolean[] seleccionats = new boolean[personatges.size()];
         Personatge[] lluitador = new Personatge[2];
 
-        //  for (Personatge p : personatges)
-        for (int selec = 1; selec <= 2; selec++) {
+        Random random = new Random();
 
+        for (int selec = 1; selec <= 2; selec++) {
             for (int i = 0; i < personatges.size(); i++) {
                 if (!seleccionats[i]) {
-
-                    String tipus = " ";
-                    if (personatges.get(i) instanceof Nan) {
-                        tipus = "Nan";
-                    } else if (personatges.get(i) instanceof Huma) {
-                        tipus = "Huma";
-                    } else if (personatges.get(i) instanceof Mitja) {
-                        tipus = "Mitja";
-                    } else if (personatges.get(i) instanceof Maia) {
-                        tipus = "Maia";
-                    }
-
-                    System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
+                    System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom());
                 }
-
             }
-            System.out.printf("\nTria un personatge" + selec + " : ");
-            int opcio = sc.nextInt();
+
+            System.out.printf("\nTria un personatge %d: ", selec);
+            int opcio = random.nextInt(personatges.size()) + 1;
+
+            while (seleccionats[opcio - 1]) {
+                opcio = random.nextInt(personatges.size()) + 1;
+            }
+
             seleccionats[opcio - 1] = true;
             lluitador[selec - 1] = personatges.get(opcio - 1);
 
             System.out.println("Personatge triat: " + personatges.get(opcio - 1).getNom());
         }
 
-        // Inici combat
         Personatge atacant = lluitador[0];
         Personatge defensor = lluitador[1];
 
-        Dau dau1 = new Dau();
-        Dau dau2 = new Dau();
-        Dau dau3 = new Dau();
+        Random dau1 = new Random();
+        Random dau2 = new Random();
+        Random dau3 = new Random();
 
-        int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-        // System.out.println("Valor daus: " + valor);
+        while (atacant.getPs() > 0 && defensor.getPs() > 0) {
+            System.out.println(atacant.getNom() + " Ataca");
 
-        if (valor <= atacant.getPa()) { // Atacant ataca
-            valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-            if (valor > defensor.getPe()) { // No aconsegueix esquivar
-                defensor.setPs(defensor.getPs() - atacant.getPd());
+            int valor = dau1.nextInt(25) + 1 + dau2.nextInt(25) + 1 + dau3.nextInt(25) + 1;
+            System.out.println("Valor daus: " + valor);
+
+            if (valor <= atacant.getPa()) {
+                valor = dau1.nextInt(25) + 1 + dau2.nextInt(25) + 1 + dau3.nextInt(25) + 1;
+                System.out.println("Valor daus: " + valor);
+
+                if (valor > defensor.getPe()) {
+                    defensor.setPs(defensor.getPs() - atacant.getPd());
+                    System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd());
+                    System.out.println("Vida restant: " + defensor.getPs());
+                } else {
+                    System.out.println(defensor.getNom() + " ha evitat l'atac");
+                }
             }
+
+            // Intercambi rols
+            Personatge aux = atacant;
+            atacant = defensor;
+            defensor = aux;
         }
+        
+                // Finalitzar combat
 
-        // Final ronda
-        Personatge aux = atacant;
-        atacant = defensor;
-        defensor = aux;
-
-        /*
-        atacant.setPs(atacant.getPs());
-        defensor.setPs(defensor.getPs());
-        int pexGanador = defensor.getPs();
-        atacant.setPex(atacant.getPex() + pexGanador);
-        if (atacant.subirDeNivel()) {
-            atacant.calculaEstadistiquesSecundaries();
-        } */
-        // public static void verificarMenu(String menuOption) {
-        //  }
+        Personatge guanyador = (atacant.getPs() > 0) ? atacant : defensor;
+        Personatge perdedor = (atacant.getPs() > 0) ? defensor : atacant;
+        System.out.println("El guanyador és: " + guanyador.getNom());
+        
+        
     }
 }
+// public static void verificarMenu(String menuOption) {
+//  }
+
