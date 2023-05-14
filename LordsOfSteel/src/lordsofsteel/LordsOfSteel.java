@@ -307,20 +307,31 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
-
+        if (personatges.size() < 3) {
+            System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+            borrarPersonatge = true;
+        }
         System.out.println("");
         while (!borrarPersonatge) {
 
             for (int i = 0; i < personatges.size(); i++) {
                 String tipus = " ";
-                if (personatges.get(i) instanceof Nan) {
-                    tipus = "Nan";
-                } else if (personatges.get(i) instanceof Huma) {
-                    tipus = "Huma";
-                } else if (personatges.get(i) instanceof Mitja) {
-                    tipus = "Mitja";
-                } else if (personatges.get(i) instanceof Maia) {
-                    tipus = "Maia";
+                if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
+                    tipus = "Nan" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
+                    tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
+                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
+                    tipus = "Huma" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
+                    tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
+                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
+                    tipus = "Mitja" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
+                    tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
+                    tipus = "Maia" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
+                    tipus = "Maia" + colorTaronja + " Caos" + colorReset;
                 }
 
                 System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
@@ -380,21 +391,29 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
-        if (personatges.size() < 2) {
+        if (personatges.size() <= 0) {
             System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
             editarPersonatge = true;
         }
         while (!editarPersonatge) {
             for (int i = 0; i < personatges.size(); i++) {
                 String tipus = " ";
-                if (personatges.get(i) instanceof Nan) {
-                    tipus = "Nan";
-                } else if (personatges.get(i) instanceof Huma) {
-                    tipus = "Huma";
-                } else if (personatges.get(i) instanceof Mitja) {
-                    tipus = "Mitja";
-                } else if (personatges.get(i) instanceof Maia) {
-                    tipus = "Maia";
+                if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
+                    tipus = "Nan" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
+                    tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
+                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
+                    tipus = "Huma" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
+                    tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
+                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
+                    tipus = "Mitja" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
+                    tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
+                    tipus = "Maia" + colorVermell + " Caos" + colorReset;
+                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
+                    tipus = "Maia" + colorTaronja + " Caos" + colorReset;
                 }
 
                 System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
@@ -456,6 +475,11 @@ public class LordsOfSteel {
 
                 System.out.println("");
                 System.out.println("Les estadístiques del personatge s'han actualitzat amb" + colorVerd + " èxit." + colorReset);
+                if (puntsRestants > 0) {
+                    System.out.println("");
+                    System.out.println(colorVermell + "Recorda que et falten: " + puntsRestants + " punt(s) per asignar" + colorReset);
+                    System.out.println("");
+                }
             } else {
                 System.out.println("Opció no vàlida. Si us plau, selecciona un personatge vàlid.");
             }
@@ -491,7 +515,7 @@ public class LordsOfSteel {
         System.out.println("|     (2) Sortir         |");
         System.out.println("+------------------------+");
         System.out.println("");
-        System.out.print("Selecciona una opció:");
+        System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         switch (crearSortir) {
             case 1:
@@ -517,32 +541,56 @@ public class LordsOfSteel {
 
             //  for (Personatge p : personatges)
             for (int selec = 1; selec <= 2; selec++) {
-
+                boolean personatgeRepetit = true;
+                while (personatgeRepetit) {
                 for (int i = 0; i < personatges.size(); i++) {
                     if (!seleccionats[i]) {
 
                         String tipus = " ";
-                        if (personatges.get(i) instanceof Nan) {
-                            tipus = "Nan";
-                        } else if (personatges.get(i) instanceof Huma) {
-                            tipus = "Huma";
-                        } else if (personatges.get(i) instanceof Mitja) {
-                            tipus = "Mitja";
-                        } else if (personatges.get(i) instanceof Maia) {
-                            tipus = "Maia";
+                        if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
+                            tipus = "Nan" + colorVermell + " Caos" + colorReset;
+                        } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
+                            tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
+                        } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
+                            tipus = "Huma" + colorVermell + " Caos" + colorReset;
+                        } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
+                            tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
+                        } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
+                            tipus = "Mitja" + colorVermell + " Caos" + colorReset;
+                        } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
+                            tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
+                        } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
+                            tipus = "Maia" + colorVermell + " Caos" + colorReset;
+                        } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
+                            tipus = "Maia" + colorTaronja + " Caos" + colorReset;
                         }
 
                         System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
                     }
 
                 }
-                System.out.printf("\nTria un personatge" + selec + " : ");
-                int opcio = verificarMenu(sc.nextLine(), personatges.size());
+                
+                System.out.printf("\nTria un personatge " + selec + " : ");
+            int opcio = verificarMenu(sc.nextLine(), personatges.size());
+
+            if (!seleccionats[opcio - 1]) {
                 seleccionats[opcio - 1] = true;
                 lluitador[selec - 1] = personatges.get(opcio - 1);
+                personatgeRepetit = false;
 
-                System.out.println("Personatge triat: " + personatges.get(opcio - 1).getNom());
+                System.out.println("Personatge triat: " + colorVerd + personatges.get(opcio - 1).getNom() + colorReset);
+                System.out.println("");
+                if (personatges.get(opcio - 1).getPs() == 0) {
+                    System.out.println("");
+                    System.out.println(colorVermell + "El personatge: " + personatges.get(opcio - 1).getNom() + " s'ha suicidat" + colorReset);
+                    System.out.println("");
+                }
+            } else {
+                System.out.println("");
+                System.out.println(colorVermell + "Aquest personatge ja ha estat seleccionat. Tria un altre." + colorReset);
             }
+        }
+    }
 
             // Inici combat
             Personatge atacant = lluitador[0];
@@ -642,12 +690,12 @@ public class LordsOfSteel {
             System.out.println("");
             System.out.println("Vols iniciar un nou combat? (s/n)");
             System.out.print("Selecció: ");
-            String opcio = sc.nextLine();
+            String opcio = sc.nextLine().toLowerCase();
             while (!opcio.equalsIgnoreCase("s") && !opcio.equalsIgnoreCase("n")) {
+                System.out.println(colorVerd + "Input incorrecte" + colorReset);
+                System.out.print("Selecció: ");
                 opcio = sc.nextLine();
             }
-
-            opcio = opcio.toLowerCase();
 
             if (opcio.equalsIgnoreCase("n")) {
                 combat = true;
