@@ -13,6 +13,14 @@ import java.util.*;
 public class LordsOfSteel {
 
     static Scanner sc = new Scanner(System.in);
+    static String colorVermell = "\u001B[31m";
+    static String colorVerd = "\u001B[32m";
+    static String colorBlau = "\u001B[34m";
+    static String colorTaronja = "\u001B[33m";
+    static String colorLila = "\u001B[35m";
+    static String colorBlauCel = "\u001B[36m";
+    static String colorReset = "\u001B[0m";
+    static String colorBlanc = "\u001B[37m";
 
     public static void main(String[] args) {
 
@@ -30,28 +38,28 @@ public class LordsOfSteel {
         personatges.add(ma1);
 
         System.out.println("");
-        System.out.println("        __                                           __");
-        System.out.println("       (**)                                         (**)");
-        System.out.println("       IIII                                         IIII");
-        System.out.println("       ####                                         ####");
-        System.out.println("       HHHH     	             LORDS                  HHHH");
-        System.out.println("       HHHH                                         HHHH");
-        System.out.println("       ####                                         ####");
-        System.out.println("    ___IIII___                                   ___IIII___");
-        System.out.println(" .-`_._\"**\"_._`-.                             .-`_._\"**\"_._`-.");
-        System.out.println("|/``  .`\\/`.  ``\\|            OF             |/``  .`\\/`.  ``\\|");
-        System.out.println("`     }    {     '                           `     }    {     '");
-        System.out.println("      ) () (                                       ) () (");
-        System.out.println("      ( :: )                                       ( :: )");
-        System.out.println("      | :: |                                       | :: |");
-        System.out.println("      | )( |                 STEEL                 | )( |");
-        System.out.println("      | || |                                       | || |");
-        System.out.println("      | || |                                       | || |");
-        System.out.println("      | || |                                       | || |");
-        System.out.println("      ( () )                                       ( () )");
-        System.out.println("       \\  /                                         \\  /");
-        System.out.println("        \\/                                           \\/");
-        System.out.println("");
+        System.out.println(colorVermell + "        __                                           __");
+        System.out.println(colorVermell +"       (**)                                         (**)");
+        System.out.println(colorVermell +"       IIII                                         IIII");
+        System.out.println(colorVermell +"       ####                                         ####");
+        System.out.println(colorVermell +"       HHHH     	             " + colorBlanc + "LORDS" + colorVermell + "                  HHHH");
+        System.out.println(colorVermell +"       HHHH                                         HHHH");
+        System.out.println(colorVermell +"       ####                                         ####");
+        System.out.println(colorVermell +"    ___IIII___                                   ___IIII___");
+        System.out.println(colorVermell +" .-`_._\"**\"_._`-.                             .-`_._\"**\"_._`-.");
+        System.out.println(colorVermell +"|/``  .`\\/`.  ``\\|            "+ colorBlanc + "OF" + colorVermell+ "             |/``  .`\\/`.  ``\\|");
+        System.out.println(colorVermell +"`     }    {     '                           `     }    {     '");
+        System.out.println(colorVermell +"      ) () (                                       ) () (");
+        System.out.println(colorVermell +"      ( :: )                                       ( :: )");
+        System.out.println(colorVermell +"      | :: |                                       | :: |");
+        System.out.println(colorVermell +"      | )( |                 " + colorBlanc + "STEEL" + colorVermell + "                 | )( |");
+        System.out.println(colorVermell +"      | || |                                       | || |");
+        System.out.println(colorVermell +"      | || |                                       | || |");
+        System.out.println(colorVermell +"      | || |                                       | || |");
+        System.out.println(colorVermell +"      ( () )                                       ( () )");
+        System.out.println(colorVermell +"       \\  /                                         \\  /");
+        System.out.println(colorVermell +"        \\/                                           \\/");
+        System.out.println(colorReset);
         System.out.println("Pulsa enter per continuar: ");
         sc.nextLine();
 
@@ -73,7 +81,7 @@ public class LordsOfSteel {
             System.out.println("");
 
             System.out.print("Seleccionar: ");
-            int opcio = verificarMenu(sc.nextLine());
+            int opcio = verificarMenu(sc.nextLine(), 5);
             switch (opcio) {
                 case 1:
                     crearPersonatge(personatges);
@@ -90,7 +98,23 @@ public class LordsOfSteel {
                     break;
                 case 5:
                     sortir = true;
-                    System.out.println("Sortint...");
+                    System.out.println("");
+                            System.out.println(colorVerd + "         _.---,._,'");
+        System.out.println(colorVerd + "       /' _.--.<");
+        System.out.println(colorVerd + "         /'     `'");
+        System.out.println(colorVerd + "       /' _.---._____");
+        System.out.println(colorVerd + "       \\.'   ___, .-'`");
+        System.out.println(colorVerd + "           /'    \\\\             .");
+        System.out.println(colorVerd + "         /'       `-.          -|-");
+        System.out.println(colorVerd + "        |                       |");
+        System.out.println(colorVerd + "        |                   .-'~~~`-.");
+        System.out.println(colorVerd + "        |                 .'         `.");
+        System.out.println(colorVerd + "        |                 |  A D E U  |");
+        System.out.println(colorVerd + "        |                 |           |");
+        System.out.println(colorVerd + "        |                 |           |");
+        System.out.println(colorVerd + "         \\              \\\\|           |//");
+        System.out.println(colorVerd + "   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    System.out.println(colorReset);
                     break;
                 default:
                     break;
@@ -106,7 +130,7 @@ public class LordsOfSteel {
         System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció: ");
-        int crearSortir = verificarMenu(sc.nextLine());
+        int crearSortir = verificarMenu(sc.nextLine(), 2);
         switch (crearSortir) {
             case 1:
                 crearPersonatge = false;
@@ -135,7 +159,7 @@ public class LordsOfSteel {
             int puntsRestants = 60;
             String nomArma;
             System.out.print("Selecció: ");
-            int opcio = verificarMenu(sc.nextLine());;
+            int opcio = verificarMenu(sc.nextLine(), 4);;
             System.out.println("");
 
             System.out.print("Introdueix el nom del personatge: ");
@@ -146,48 +170,28 @@ public class LordsOfSteel {
             System.out.println("");
 
             System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
-            int forca = verificarMenu(sc.nextLine());
-            while (forca > puntsRestants) {
-                System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
-                System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
-                forca = verificarMenu(sc.nextLine());
-            }
+            int forca = verificarMenu(sc.nextLine(), puntsRestants);
+
             puntsRestants -= forca;
 
             System.out.print("Constitució (màxim " + puntsRestants + " punts disponibles): ");
-            int constitucio = verificarMenu(sc.nextLine());
-            while (constitucio > puntsRestants) {
-                System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
-                System.out.print("Constitució (màxim " + puntsRestants + " punts disponibles): ");
-                constitucio = verificarMenu(sc.nextLine());
-            }
+            int constitucio = verificarMenu(sc.nextLine(), puntsRestants);
+
             puntsRestants -= constitucio;
 
             System.out.print("Velocitat (màxim " + puntsRestants + " punts disponibles): ");
-            int velocitat = verificarMenu(sc.nextLine());
-            while (velocitat > puntsRestants) {
-                System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
-                System.out.print("Velocitat (màxim " + puntsRestants + " punts disponibles): ");
-                velocitat = verificarMenu(sc.nextLine());
-            }
+            int velocitat = verificarMenu(sc.nextLine(), puntsRestants);
+
             puntsRestants -= velocitat;
 
             System.out.print("Intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-            int intelligencia = verificarMenu(sc.nextLine());
-            while (intelligencia > puntsRestants) {
-                System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
-                System.out.print("Intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-                intelligencia = verificarMenu(sc.nextLine());
-            }
+            int intelligencia = verificarMenu(sc.nextLine(), puntsRestants);
+
             puntsRestants -= intelligencia;
 
             System.out.print("Sort (màxim " + puntsRestants + " punts disponibles): ");
-            int sort = verificarMenu(sc.nextLine());
-            while (sort > puntsRestants) {
-                System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
-                System.out.print("Sort (màxim " + puntsRestants + " punts disponibles): ");
-                sort = verificarMenu(sc.nextLine());
-            }
+            int sort = verificarMenu(sc.nextLine(), puntsRestants);
+
             puntsRestants -= sort;
 
             System.out.println("Et queden " + puntsRestants + " punts per distribuir.");
@@ -200,7 +204,7 @@ public class LordsOfSteel {
             System.out.println("3. Martell");
             System.out.println("");
             System.out.print("Selecció: ");
-            int opcioArma = verificarMenu(sc.nextLine());
+            int opcioArma = verificarMenu(sc.nextLine(), 3);
             switch (opcioArma) {
                 case 1:
                     nomArma = "Daga";
@@ -214,45 +218,46 @@ public class LordsOfSteel {
                 default:
                     throw new AssertionError();
             }
-
+            System.out.println("");
             System.out.println("Selecciona una pasiva: ");
-            System.out.println("1. Ordre (Robatori de vida)");
-            System.out.println("2. Caos (% Atac extra)");
+            System.out.println("");
+            System.out.println(colorTaronja + "1. Ordre (Robatori de vida)" + colorReset);
+            System.out.println(colorLila + "2. Caos (Atac extra)" + colorReset);
             System.out.println("");
             System.out.print("Selecció: ");
-            int opcio2 = verificarMenu(sc.nextLine());
+            int opcio2 = verificarMenu(sc.nextLine(), 2);
             if (opcio == 1 && opcio2 == 1) {
                 HumaOrdre nouHumaOrdre = new HumaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouHumaOrdre);
-                System.out.println("Personatge creat: " + nouHumaOrdre.getNom() + " (Ordre)");
+                System.out.println("Personatge creat: " + colorVerd + nouHumaOrdre.getNom() + colorTaronja + " (Ordre)" + colorReset);
             } else if (opcio == 1 && opcio2 == 2) {
                 HumaCaos nouHumaCaos = new HumaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouHumaCaos);
-                System.out.println("Personatge creat: " + nouHumaCaos.getNom() + " (Caos)");
+                System.out.println("Personatge creat: " + colorVerd + nouHumaCaos.getNom() + colorLila +" (Caos)" + colorReset);
             } else if (opcio == 2 && opcio2 == 1) {
                 NanOrdre nouNanOrdre = new NanOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouNanOrdre);
-                System.out.println("Personatge creat: " + nouNanOrdre.getNom() + " (Ordre)");
+                System.out.println("Personatge creat: " + colorVerd + nouNanOrdre.getNom() + colorTaronja +" (Ordre)" + colorReset);
             } else if (opcio == 2 && opcio2 == 2) {
                 NanCaos nouNanCaos = new NanCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouNanCaos);
-                System.out.println("Personatge creat: " + nouNanCaos.getNom() + " (Caos)");
+                System.out.println("Personatge creat: " + colorVerd + nouNanCaos.getNom() + colorLila +" (Caos)" + colorReset);
             } else if (opcio == 3 && opcio2 == 1) {
                 MaiaOrdre nouMaiaOrdre = new MaiaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMaiaOrdre);
-                System.out.println("Personatge creat: " + nouMaiaOrdre.getNom() + " (Ordre)");
+                System.out.println("Personatge creat: " + colorVerd + nouMaiaOrdre.getNom() + colorTaronja +" (Ordre)" + colorReset);
             } else if (opcio == 3 && opcio2 == 2) {
                 MaiaCaos nouMaiaCaos = new MaiaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMaiaCaos);
-                System.out.println("Personatge creat: " + nouMaiaCaos.getNom() + " (Caos)");
+                System.out.println("Personatge creat: " + colorVerd + nouMaiaCaos.getNom() + colorLila +" (Caos)" + colorReset);
             } else if (opcio == 4 && opcio2 == 1) {
                 MitjaOrdre nouMitjaOrdre = new MitjaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMitjaOrdre);
-                System.out.println("Personatge creat: " + nouMitjaOrdre.getNom() + " (Ordre)");
+                System.out.println("Personatge creat: " + colorVerd + nouMitjaOrdre.getNom() + colorTaronja +" (Ordre)" + colorReset);
             } else if (opcio == 2 && opcio2 == 2) {
                 MitjaCaos nouMitjaCaos = new MitjaCaos(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouMitjaCaos);
-                System.out.println("Personatge creat: " + nouMitjaCaos.getNom() + " (Caos)");
+                System.out.println("Personatge creat: " + colorVerd + nouMitjaCaos.getNom() + colorLila +" (Caos)" + colorReset);
             }
             System.out.println("");
             System.out.println("+------------------------+");
@@ -261,7 +266,7 @@ public class LordsOfSteel {
             System.out.println("+------------------------+");
             System.out.println("");
             System.out.print("Selecciona una opció: ");
-            crearSortir = verificarMenu(sc.nextLine());
+            crearSortir = verificarMenu(sc.nextLine(), 2);
             switch (crearSortir) {
                 case 1:
                     crearPersonatge = false;
@@ -289,7 +294,7 @@ public class LordsOfSteel {
         System.out.println("");
         System.out.print("Selecciona una opció: ");
         System.out.println("");
-        int crearSortir = verificarMenu(sc.nextLine());
+        int crearSortir = verificarMenu(sc.nextLine(), 2);
         switch (crearSortir) {
             case 1:
                 borrarPersonatge = false;
@@ -317,15 +322,15 @@ public class LordsOfSteel {
                     tipus = "Maia";
                 }
 
-                System.out.printf("%d %s\n", (i + 1), ".", personatges.get(i).getNom(), tipus);
+                System.out.printf("%d %s\n", (i + 1), personatges.get(i).getNom(), tipus);
             }
             System.out.println("");
             System.out.print("Personatge a esborrar: ");
-            int opcio = verificarMenu(sc.nextLine()) - 1;
+            int opcio = verificarMenu(sc.nextLine(), 2) - 1;
 
             if (opcio >= 0 && opcio < personatges.size()) {
                 Personatge personatgeEsborrat = personatges.remove(opcio);
-                System.out.println("Personatge " + personatgeEsborrat.getNom() + " esborrat amb èxit.");
+                System.out.println("Personatge " + personatgeEsborrat.getNom() + colorVermell + " esborrat" + colorReset + " amb èxit.");
             } else {
                 System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
             }
@@ -336,7 +341,7 @@ public class LordsOfSteel {
             System.out.println("+------------------------+");
             System.out.println("");
             System.out.print("Selecciona una opció: ");
-            crearSortir = verificarMenu(sc.nextLine());
+            crearSortir = verificarMenu(sc.nextLine(), 2);
             switch (crearSortir) {
                 case 1:
                     borrarPersonatge = false;
@@ -361,7 +366,7 @@ public class LordsOfSteel {
         System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció:");
-        int crearSortir = verificarMenu(sc.nextLine());
+        int crearSortir = verificarMenu(sc.nextLine(), 2);
         System.out.println("");
         switch (crearSortir) {
             case 1:
@@ -391,7 +396,7 @@ public class LordsOfSteel {
             }
             System.out.println("");
             System.out.println("Selecciona el personatge a editar:");
-            int opcio = verificarMenu(sc.nextLine()) - 1;
+            int opcio = verificarMenu(sc.nextLine(), personatges.size()) - 1;
 
             if (opcio >= 0 && opcio < personatges.size()) {
                 Personatge personatge = personatges.get(opcio);
@@ -410,48 +415,28 @@ public class LordsOfSteel {
 
                 // Solicitar las nuevas estadísticas
                 System.out.print("Nova força (màxim " + puntsRestants + " punts disponibles): ");
-                int novaForca = verificarMenu(sc.nextLine());
-                while (novaForca > puntsRestants) {
-                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
-                    System.out.print("Nova força (màxim " + puntsRestants + " punts disponibles): ");
-                    novaForca = verificarMenu(sc.nextLine());
-                }
+                int novaForca = verificarMenu(sc.nextLine(), puntsRestants);
+
                 puntsRestants -= novaForca;
 
                 System.out.print("Nova constitucio (màxim " + puntsRestants + " punts disponibles): ");
-                int novaConstitucio = verificarMenu(sc.nextLine());
-                while (novaConstitucio > puntsRestants) {
-                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
-                    System.out.print("Nova constitucio (màxim " + puntsRestants + " punts disponibles): ");
-                    novaForca = verificarMenu(sc.nextLine());
-                }
+                int novaConstitucio = verificarMenu(sc.nextLine(), puntsRestants);
+
                 puntsRestants -= novaConstitucio;
 
                 System.out.print("Nova velocitat (màxim " + puntsRestants + " punts disponibles): ");
-                int novaVelocitat = verificarMenu(sc.nextLine());
-                while (novaVelocitat > puntsRestants) {
-                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
-                    System.out.print("Nova velocitat (màxim " + puntsRestants + " punts disponibles): ");
-                    novaVelocitat = verificarMenu(sc.nextLine());
-                }
+                int novaVelocitat = verificarMenu(sc.nextLine(), puntsRestants);
+
                 puntsRestants -= novaVelocitat;
 
                 System.out.print("Nova intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-                int novaIntel = verificarMenu(sc.nextLine());
-                while (novaIntel > puntsRestants) {
-                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
-                    System.out.print("Nova intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-                    novaIntel = verificarMenu(sc.nextLine());
-                }
+                int novaIntel = verificarMenu(sc.nextLine(), puntsRestants);
+
                 puntsRestants -= novaIntel;
 
                 System.out.print("Nova sort (màxim " + puntsRestants + " punts disponibles): ");
-                int novaSort = verificarMenu(sc.nextLine());
-                while (novaSort > puntsRestants) {
-                    System.out.println("Has superat el límit de punts disponibles. Si us plau, introdueix un valor vàlid.");
-                    System.out.print("Nova sort (màxim " + puntsRestants + " punts disponibles): ");
-                    novaSort = verificarMenu(sc.nextLine());
-                }
+                int novaSort = verificarMenu(sc.nextLine(), puntsRestants);
+
                 puntsRestants -= novaSort;
 
                 // Actualizar las estadísticas del personaje
@@ -460,8 +445,9 @@ public class LordsOfSteel {
                 personatge.setVelocitat(novaVelocitat);
                 personatge.setIntelligencia(novaIntel);
                 personatge.setSort(novaSort);
-
-                System.out.println("Les estadístiques del personatge s'han actualitzat amb èxit.");
+                
+                System.out.println("");
+                System.out.println("Les estadístiques del personatge s'han actualitzat amb" + colorVerd + " èxit." + colorReset);
             } else {
                 System.out.println("Opció no vàlida. Si us plau, selecciona un personatge vàlid.");
             }
@@ -472,7 +458,7 @@ public class LordsOfSteel {
             System.out.println("+------------------------+");
             System.out.println("");
             System.out.print("Selecciona una opció:");
-            crearSortir = verificarMenu(sc.nextLine());
+            crearSortir = verificarMenu(sc.nextLine(), 2);
             switch (crearSortir) {
                 case 1:
                     editarPersonatge = false;
@@ -498,7 +484,7 @@ public class LordsOfSteel {
         System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció:");
-        int crearSortir = verificarMenu(sc.nextLine());
+        int crearSortir = verificarMenu(sc.nextLine(), 2);
         switch (crearSortir) {
             case 1:
                 combat = false;
@@ -537,7 +523,7 @@ public class LordsOfSteel {
 
                 }
                 System.out.printf("\nTria un personatge" + selec + " : ");
-                int opcio = sc.nextInt();
+                int opcio = verificarMenu(sc.nextLine(), personatges.size());
                 seleccionats[opcio - 1] = true;
                 lluitador[selec - 1] = personatges.get(opcio - 1);
 
@@ -604,7 +590,7 @@ public class LordsOfSteel {
                 System.out.println("Vida de " + atacant.getNom() + ": " + atacant.getPs());
                 System.out.println("Vida de " + defensor.getNom() + ": " + defensor.getPs());
                 System.out.println("");
-                System.out.println("Ronda: " + ronda);
+                System.out.println(colorBlau + "Ronda: " + ronda + colorReset);
                 System.out.println("----------");
                 ronda++;
 
@@ -617,17 +603,19 @@ public class LordsOfSteel {
             // Finalitzar combat
             Personatge guanyador = (atacant.getPs() > 0) ? atacant : defensor;
             Personatge perdedor = (atacant.getPs() > 0) ? defensor : atacant;
-            System.out.println("El guanyador és: " + guanyador.getNom());
+            System.out.println("El guanyador és: " + colorVerd + guanyador.getNom() + colorReset);
 
             lluitador[0].setPs(vida1);
             lluitador[1].setPs(vida2);
 
             guanyador.setPex(guanyador.getPex() + perdedor.getPs());
+            System.out.println("");
             System.out.println("El guanyador ha obtingut: " + guanyador.getPex() + " punts d'experiencia");
             if (guanyador.getPex() >= guanyador.getPexSiguienteNivel()) {
                 guanyador.subirDeNivel();
                 guanyador.calculaEstadistiquesSecundaries();
-                System.out.println("Felicitats " + guanyador.getNom() + " ha pujat de nivell!! " + "Lvl: " + guanyador.getNivell());
+                System.out.println("Felicitats " + colorVerd + guanyador.getNom() + colorReset + " ha pujat de nivell!! " + colorBlauCel + "Lvl: " + guanyador.getNivell() + colorReset);
+                System.out.println("");
                 System.out.println("Noves estadistiques:");
                 System.out.println("Força: " + guanyador.getForca());
                 System.out.println("Constitucio: " + guanyador.getConstitucio());
@@ -636,12 +624,12 @@ public class LordsOfSteel {
                 System.out.println("Sort: " + guanyador.getSort());
             }
 
-            // Preguntar si se desea iniciar un nuevo combate o salir al menú principal
+            // Nuevo combate o salir
             System.out.println("");
             System.out.println("Vols iniciar un nou combat? (s/n)");
+            System.out.print("Selecció: ");
             String opcio = sc.nextLine();
             while (!opcio.equalsIgnoreCase("s") && !opcio.equalsIgnoreCase("n")) {
-                System.out.print("Introdueix una opció vàlida: ");
                 opcio = sc.nextLine();
             }
 
@@ -656,15 +644,28 @@ public class LordsOfSteel {
 
     }
 
-    public static int verificarMenu(String valor) {
-        int numero;
-        try {
-            numero = Integer.parseInt(valor);
-        } catch (NumberFormatException e) {
-            System.out.print("Introdueix un valor vàlid: ");
-            return verificarMenu(sc.nextLine());
+    public static int verificarMenu(String input, int maxValor) {
+        boolean valorValid = false;
+        int valor = 0;
+
+        while (!valorValid) {
+            try {
+                valor = Integer.parseInt(input);
+                if (valor <= maxValor && valor >= 0) {
+                    valorValid = true;
+                } else {
+                    System.out.println(colorVermell + "Número no vàlid" + colorReset);
+                    System.out.print("Introdueix un valor correcte: ");
+                    return verificarMenu(sc.nextLine(), maxValor);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println(colorVermell + "Input incorrecte" + colorReset);
+                System.out.print("Introdueix un valor correcte: ");
+                return verificarMenu(sc.nextLine(), maxValor);
+            }
         }
-        return numero;
+
+        return valor;
     }
 
 }
