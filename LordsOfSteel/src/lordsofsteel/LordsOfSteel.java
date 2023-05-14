@@ -89,7 +89,7 @@ public class LordsOfSteel {
         System.out.println("2. Sortir");
         System.out.println("");
         System.out.print("Selecciona una opció: ");
-        int crearSortir = sc.nextInt();
+        int crearSortir = verificarMenu(sc.nextLine());
         switch (crearSortir) {
             case 1:
                 crearPersonatge = false;
@@ -118,55 +118,55 @@ public class LordsOfSteel {
             int puntsRestants = 60;
             String nomArma;
             System.out.print("Selecció: ");
-            int opcio = sc.nextInt();
+            int opcio = verificarMenu(sc.nextLine());;
             System.out.println("");
 
             System.out.print("Introdueix el nom del personatge: ");
-            String nom = sc.next();
+            String nom = sc.nextLine();
             System.out.println("Tens " + puntsRestants + " punts per repartir entre les següents característiques:");
 
             System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
-            int forca = sc.nextInt();
+            int forca = verificarMenu(sc.nextLine());
             while (forca > puntsRestants) {
                 System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
                 System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
-                forca = sc.nextInt();
+                forca = verificarMenu(sc.nextLine());
             }
             puntsRestants -= forca;
 
             System.out.print("Constitució (màxim " + puntsRestants + " punts disponibles): ");
-            int constitucio = sc.nextInt();
+            int constitucio = verificarMenu(sc.nextLine());
             while (constitucio > puntsRestants) {
                 System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
                 System.out.print("Constitució (màxim " + puntsRestants + " punts disponibles): ");
-                constitucio = sc.nextInt();
+                constitucio = verificarMenu(sc.nextLine());
             }
             puntsRestants -= constitucio;
 
             System.out.print("Velocitat (màxim " + puntsRestants + " punts disponibles): ");
-            int velocitat = sc.nextInt();
+            int velocitat = verificarMenu(sc.nextLine());
             while (velocitat > puntsRestants) {
                 System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
                 System.out.print("Velocitat (màxim " + puntsRestants + " punts disponibles): ");
-                velocitat = sc.nextInt();
+                velocitat = verificarMenu(sc.nextLine());
             }
             puntsRestants -= velocitat;
 
             System.out.print("Intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-            int intelligencia = sc.nextInt();
+            int intelligencia = verificarMenu(sc.nextLine());
             while (intelligencia > puntsRestants) {
                 System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
                 System.out.print("Intel·ligència (màxim " + puntsRestants + " punts disponibles): ");
-                intelligencia = sc.nextInt();
+                intelligencia = verificarMenu(sc.nextLine());
             }
             puntsRestants -= intelligencia;
 
             System.out.print("Sort (màxim " + puntsRestants + " punts disponibles): ");
-            int sort = sc.nextInt();
+            int sort = verificarMenu(sc.nextLine());
             while (sort > puntsRestants) {
                 System.out.println("Has superat el límit de punts disponibles. Siusplau, introdueix un valor vàlid.");
                 System.out.print("Sort (màxim " + puntsRestants + " punts disponibles): ");
-                sort = sc.nextInt();
+                sort = verificarMenu(sc.nextLine());
             }
             puntsRestants -= sort;
 
@@ -178,7 +178,7 @@ public class LordsOfSteel {
             System.out.println("3. Martell");
             System.out.println("");
             System.out.print("Selecció: ");
-            int opcioArma = sc.nextInt();
+            int opcioArma = verificarMenu(sc.nextLine());
             switch (opcioArma) {
                 case 1:
                     nomArma = "Daga";
@@ -198,7 +198,7 @@ public class LordsOfSteel {
             System.out.println("2. Caos (% Atac extra)");
             System.out.println("");
             System.out.print("Seleccoó: ");
-            int opcio2 = sc.nextInt();
+            int opcio2 = verificarMenu(sc.nextLine());
             if (opcio == 1 && opcio2 == 1) {
                 HumaOrdre nouHumaOrdre = new HumaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
                 personatges.add(nouHumaOrdre);
@@ -237,7 +237,7 @@ public class LordsOfSteel {
             System.out.println("2. Sortir");
             System.out.println("");
             System.out.print("Selecciona una opció: ");
-            crearSortir = sc.nextInt();
+            crearSortir = verificarMenu(sc.nextLine());
             switch (crearSortir) {
                 case 1:
                     crearPersonatge = false;
@@ -258,11 +258,13 @@ public class LordsOfSteel {
 
         boolean borrarPersonatge = false;
         System.out.println("");
-        System.out.println("1. Esborrar un personatge");
-        System.out.println("2. Sortir");
+        System.out.println("+------------------------+");
+        System.out.println("|     (1) Esborrar       |");
+        System.out.println("|     (2) Sortir         |");
+        System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció: ");
-        int crearSortir = sc.nextInt();
+        int crearSortir = verificarMenu(sc.nextLine());
         switch (crearSortir) {
             case 1:
                 borrarPersonatge = false;
@@ -274,6 +276,7 @@ public class LordsOfSteel {
             default:
                 throw new AssertionError();
         }
+
         System.out.println("");
         while (!borrarPersonatge) {
 
@@ -293,7 +296,7 @@ public class LordsOfSteel {
             }
             System.out.println("");
             System.out.print("Personatge a esborrar: ");
-            int opcio = sc.nextInt() - 1;
+            int opcio = verificarMenu(sc.nextLine()) - 1;
 
             if (opcio >= 0 && opcio < personatges.size()) {
                 Personatge personatgeEsborrat = personatges.remove(opcio);
@@ -302,11 +305,13 @@ public class LordsOfSteel {
                 System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
             }
             System.out.println("");
-            System.out.println("1. Esborrar un personatge");
-            System.out.println("2. Sortir");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Esborrar       |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
             System.out.println("");
             System.out.print("Selecciona una opció: ");
-            crearSortir = sc.nextInt();
+            crearSortir = verificarMenu(sc.nextLine());
             switch (crearSortir) {
                 case 1:
                     borrarPersonatge = false;
@@ -325,11 +330,13 @@ public class LordsOfSteel {
     public static void editarPersonatge(ArrayList<Personatge> personatges) {
         boolean editarPersonatge = false;
         System.out.println("");
-        System.out.println("1. Editar un personatge");
-        System.out.println("2. Sortir");
+        System.out.println("+------------------------+");
+        System.out.println("|     (1) Editar         |");
+        System.out.println("|     (2) Sortir         |");
+        System.out.println("+------------------------+");
         System.out.println("");
         System.out.print("Selecciona una opció:");
-        int crearSortir = sc.nextInt();
+        int crearSortir = verificarMenu(sc.nextLine());
         switch (crearSortir) {
             case 1:
                 editarPersonatge = false;
@@ -358,7 +365,7 @@ public class LordsOfSteel {
             }
 
             System.out.println("Selecciona el personatge a editar:");
-            int opcio = sc.nextInt() - 1;
+            int opcio = verificarMenu(sc.nextLine()) - 1;
 
             if (opcio >= 0 && opcio < personatges.size()) {
                 Personatge personatge = personatges.get(opcio);
@@ -439,11 +446,13 @@ public class LordsOfSteel {
                 System.out.println("Opció no vàlida. Si us plau, selecciona un personatge vàlid.");
             }
             System.out.println("");
-            System.out.println("1. Editar un personatge");
-            System.out.println("2. Sortir");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Editar         |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
             System.out.println("");
             System.out.print("Selecciona una opció:");
-            crearSortir = sc.nextInt();
+            crearSortir = verificarMenu(sc.nextLine());
             switch (crearSortir) {
                 case 1:
                     editarPersonatge = false;
@@ -460,16 +469,28 @@ public class LordsOfSteel {
 
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
 
-        boolean sortir = false;
+        boolean combat = false;
 
-        while (!sortir) {
+        while (!combat) {
             System.out.println("");
             System.out.println("+------------------------+");
-            System.out.println("|     Combat           |");
-            System.out.println("+------------------------+");
-            System.out.println("|     Personatges        |");
+            System.out.println("|     (1) Combat         |");
+            System.out.println("|     (2) Sortir         |");
             System.out.println("+------------------------+");
             System.out.println("");
+            System.out.print("Selecciona una opció:");
+            int crearSortir = verificarMenu(sc.nextLine());
+            switch (crearSortir) {
+                case 1:
+                    combat = false;
+                    break;
+                case 2:
+                    combat = true;
+                    System.out.println("Sortint...");
+                    break;
+                default:
+                    throw new AssertionError();
+            }
 
             boolean[] seleccionats = new boolean[personatges.size()];
             Personatge[] lluitador = new Personatge[2];
@@ -525,7 +546,7 @@ public class LordsOfSteel {
 
                 if (valor <= atacant.getPa()) {
                     valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
-                    System.out.println(defensor.getNom() + " Intenta de defensarse");
+                    System.out.println(defensor.getNom() + " Intenta esquivar l'atac");
                     System.out.println("Valor daus defensor: " + valor);
                     System.out.println("");
 
@@ -543,13 +564,14 @@ public class LordsOfSteel {
                             }
                         }
                         if (atacant instanceof Caos) {
-                            boolean atacarDeNou = atacant.atacPAReduida(dau1,dau2,dau3);
+                            boolean atacarDeNou = atacant.atacPAReduida(dau1, dau2, dau3);
                             if (atacarDeNou) {
                                 defensor.setPs(defensor.getPs() - atacant.getPd());
                                 System.out.println(defensor.getNom() + " ha sigut atacat de nou, ha perdut: " + atacant.getPd());
                                 System.out.println("Vida restant: " + defensor.getPs());
-                            } else
+                            } else {
                                 System.out.println("Ha fallat l'atac extra ");
+                            }
                         }
 
                     } else {
@@ -591,10 +613,16 @@ public class LordsOfSteel {
             // Preguntar si se desea iniciar un nuevo combate o salir al menú principal
             System.out.println("");
             System.out.println("Vols iniciar un nou combat? (s/n)");
-            String opcio = sc.next();
+            String opcio = sc.nextLine();
+            while (!opcio.equalsIgnoreCase("s") && !opcio.equalsIgnoreCase("n")) {
+                System.out.print("Introdueix una opció vàlida: ");
+                opcio = sc.nextLine();
+            }
+
+            opcio = opcio.toLowerCase();
 
             if (opcio.equalsIgnoreCase("n")) {
-                sortir = true;
+                combat = true;
                 System.out.println("Tornant al menú principal...");
             }
 
@@ -602,14 +630,16 @@ public class LordsOfSteel {
 
     }
 
-    public static int verificarMenu(String input) {
-        int opcio;
+    public static int verificarMenu(String valor) {
+        int numero;
         try {
-            opcio = Integer.parseInt(input);
+            numero = Integer.parseInt(valor);
         } catch (NumberFormatException e) {
-            opcio = 0;
+            System.out.println("Error: Has introduït un valor no vàlid. Siusplau, introdueix un número enter.");
+            System.out.print("Introdueix un valor vàlid: ");
+            return verificarMenu(sc.nextLine());
         }
-        return opcio;
+        return numero;
     }
 
 }
