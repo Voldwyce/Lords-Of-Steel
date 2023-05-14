@@ -17,10 +17,10 @@ public class LordsOfSteel {
     public static void main(String[] args) {
 
         // Clases proba
-        Nan n1 = new Nan("Tirion", 8, 6, 13, 16, 16, 0, new Arma("Daga"));
-        Huma h1 = new Huma("Luis", 13, 16, 6, 10, 6, 0, new Arma("Espasa"));
-        Mitja mi1 = new Mitja("Frodo", 9, 7, 7, 15, 16, 0, new Arma("Martell"));
-        Maia ma1 = new Maia("Nilf", 7, 9, 12, 15, 17, 0, new Arma("Daga"));
+        Nan n1 = new NanOrdre("Tirion", 8, 6, 13, 16, 16, 0, new Arma("Daga"));
+        Huma h1 = new HumaOrdre("Luis", 13, 16, 6, 10, 6, 0, new Arma("Espasa"));
+        Mitja mi1 = new MitjaCaos("Frodo", 9, 7, 7, 15, 16, 0, new Arma("Martell"));
+        Maia ma1 = new MaiaCaos("Nilf", 7, 9, 12, 15, 17, 0, new Arma("Daga"));
 
         // Personatge[] personatges = new Personatge[4];
         ArrayList<Personatge> personatges = new ArrayList<Personatge>();
@@ -29,6 +29,7 @@ public class LordsOfSteel {
         personatges.add(mi1);
         personatges.add(ma1);
 
+        System.out.println("");
         System.out.println("        __                                           __");
         System.out.println("       (**)                                         (**)");
         System.out.println("       IIII                                         IIII");
@@ -51,7 +52,7 @@ public class LordsOfSteel {
         System.out.println("       \\  /                                         \\  /");
         System.out.println("        \\/                                           \\/");
         System.out.println("");
-        System.out.println("Pulsa para continuar: ");
+        System.out.println("Pulsa enter per continuar: ");
         sc.nextLine();
 
         boolean sortir = false;
