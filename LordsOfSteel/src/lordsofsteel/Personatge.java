@@ -150,7 +150,6 @@ public abstract class Personatge {
         pd = (forca + arma.getWpow()) / 4;
         pa = intelligencia + sort;
         pe = velocitat + sort + intelligencia;
-        pex = 0;
     }
     
         public void restaurarPS() {
@@ -165,6 +164,7 @@ public abstract class Personatge {
         this.sort++;
         this.velocitat++;
         this.pex = 0;
+         calculaEstadistiquesSecundaries();
     }
 
     public int getPex() {

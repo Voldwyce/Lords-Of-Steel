@@ -237,12 +237,12 @@ public class LordsOfSteel {
                 personatges.add(nouMitjaCaos);
                 System.out.println("Personatge creat: " + nouMitjaCaos.getNom() + " (Caos)");
             }
-           System.out.println("");
-        System.out.println("+------------------------+");
-        System.out.println("|     (1) Crear         |");
-        System.out.println("|     (2) Sortir         |");
-        System.out.println("+------------------------+");
-        System.out.println("");
+            System.out.println("");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Crear         |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
+            System.out.println("");
             System.out.print("Selecciona una opció: ");
             crearSortir = verificarMenu(sc.nextLine());
             switch (crearSortir) {
@@ -473,7 +473,7 @@ public class LordsOfSteel {
 
         boolean combat = false;
 
-           System.out.println("");
+        System.out.println("");
         System.out.println("+------------------------+");
         System.out.println("|     (1) Combat         |");
         System.out.println("|     (2) Sortir         |");
