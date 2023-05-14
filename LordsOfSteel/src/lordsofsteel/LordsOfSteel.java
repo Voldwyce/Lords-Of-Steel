@@ -125,7 +125,10 @@ public class LordsOfSteel {
 
             System.out.print("Introdueix el nom del personatge: ");
             String nom = sc.nextLine();
+            System.out.println("");
             System.out.println("Tens " + puntsRestants + " punts per repartir entre les següents característiques:");
+            System.out.println("Força / Constitució / Velocitat / Intel·ligència / Sort");
+            System.out.println("");
 
             System.out.print("Força (màxim " + puntsRestants + " punts disponibles): ");
             int forca = verificarMenu(sc.nextLine());
