@@ -42,6 +42,7 @@ public class LordsOfSteel {
         boolean sortir = false;
 
         while (!sortir) {
+            System.out.println("");
             System.out.println("+-------------------------+");
             System.out.println("|                         |");
             System.out.println("|     Menu Principal      |");
@@ -76,7 +77,6 @@ public class LordsOfSteel {
                     System.out.println("Sortint...");
                     break;
                 default:
-                    System.out.println("Opció invàlida. Si us plau, selecciona una opció vàlida.");
                     break;
             }
         }
@@ -84,9 +84,10 @@ public class LordsOfSteel {
 
     public static void crearPersonatge(ArrayList<Personatge> personatges) {
         boolean crearPersonatge = false;
-        System.out.println("Selecciona una opció:");
         System.out.println("1. Crear un personatge");
         System.out.println("2. Sortir");
+        System.out.println("");
+        System.out.print("Selecciona una opció: ");
         int crearSortir = sc.nextInt();
         switch (crearSortir) {
             case 1:
@@ -103,12 +104,12 @@ public class LordsOfSteel {
 
             System.out.println("+-------------------------+");
             System.out.println("|                         |");
-            System.out.println("|    |Clase|     |");
+            System.out.println("|         |Clase|         |");
             System.out.println("|                         |");
-            System.out.println("| 1. Huma    |");
-            System.out.println("| 2. Nan |");
-            System.out.println("| 3. Maia  |");
-            System.out.println("| 4. Mitja      |");
+            System.out.println("| 1. Huma                 |");
+            System.out.println("| 2. Nan                  |");
+            System.out.println("| 3. Maia                 |");
+            System.out.println("| 4. Mitja                |");
             System.out.println("|                         |");
             System.out.println("+-------------------------+");
             System.out.println("");
@@ -172,6 +173,8 @@ public class LordsOfSteel {
             System.out.println("1. Daga");
             System.out.println("2. Espassa");
             System.out.println("3. Martell");
+            System.out.println("");
+            System.out.print("Selecció: ");
             int opcioArma = sc.nextInt();
             switch (opcioArma) {
                 case 1:
@@ -187,9 +190,11 @@ public class LordsOfSteel {
                     throw new AssertionError();
             }
 
-            System.out.println("Selecciona una opció:");
+            System.out.print("Selecciona una pasiva: ");
             System.out.println("1. Ordre");
             System.out.println("2. Caos");
+            System.out.println("");
+            System.out.print("Seleccoó: ");
             int opcio2 = sc.nextInt();
             if (opcio == 1 && opcio2 == 1) {
                 HumaOrdre nouHumaOrdre = new HumaOrdre(nom, forca, constitucio, velocitat, intelligencia, sort, 0, new Arma(nomArma));
@@ -224,9 +229,10 @@ public class LordsOfSteel {
                 personatges.add(nouMitjaCaos);
                 System.out.println("Personatge creat: " + nouMitjaCaos.getNom() + " (Caos)");
             }
-            System.out.println("Selecciona una opció:");
             System.out.println("1. Crear un personatge");
             System.out.println("2. Sortir");
+            System.out.println("");
+            System.out.println("Selecciona una opció:");
             crearSortir = sc.nextInt();
             switch (crearSortir) {
                 case 1:
