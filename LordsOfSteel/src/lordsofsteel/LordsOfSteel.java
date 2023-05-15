@@ -310,28 +310,7 @@ public class LordsOfSteel {
         System.out.println("");
         while (!borrarPersonatge) {
 
-            for (int i = 0; i < personatges.size(); i++) {
-                String tipus = " ";
-                if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
-                    tipus = "Nan" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
-                    tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
-                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
-                    tipus = "Huma" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
-                    tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
-                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
-                    tipus = "Mitja" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
-                    tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
-                    tipus = "Maia" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
-                    tipus = "Maia" + colorTaronja + " Caos" + colorReset;
-                }
-
-                System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
-            }
+            mostrarPersonatges(personatges);
             if (personatges.size() <= 0) {
                 System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
                 borrarPersonatge = true;
@@ -339,7 +318,7 @@ public class LordsOfSteel {
             }
             System.out.println("");
             System.out.print("Personatge a esborrar: ");
-            int opcio = verificarMenu(sc.nextLine(), 2) - 1;
+            int opcio = verificarMenu(sc.nextLine(), personatges.size()) - 1;
 
             if (opcio >= 0 && opcio < personatges.size()) {
                 Personatge personatgeEsborrat = personatges.remove(opcio);
@@ -394,28 +373,7 @@ public class LordsOfSteel {
         }
 
         while (!editarPersonatge) {
-            for (int i = 0; i < personatges.size(); i++) {
-                String tipus = " ";
-                if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
-                    tipus = "Nan" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
-                    tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
-                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
-                    tipus = "Huma" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
-                    tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
-                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
-                    tipus = "Mitja" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
-                    tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
-                    tipus = "Maia" + colorVermell + " Caos" + colorReset;
-                } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
-                    tipus = "Maia" + colorTaronja + " Caos" + colorReset;
-                }
-
-                System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
-            }
+            mostrarPersonatges(personatges);
             if (personatges.size() <= 0) {
                 System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
                 editarPersonatge = true;
@@ -733,6 +691,31 @@ public class LordsOfSteel {
         }
 
         return valor;
+    }
+    // No llistat de combat
+    public static void mostrarPersonatges(ArrayList<Personatge> personatges) {
+        for (int i = 0; i < personatges.size(); i++) {
+            String tipus = " ";
+            if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Caos) {
+                tipus = "Nan" + colorVermell + " Caos" + colorReset;
+            } else if (personatges.get(i) instanceof Nan && personatges.get(i) instanceof Ordre) {
+                tipus = "Nan" + colorTaronja + " Ordre" + colorReset;
+            } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Caos) {
+                tipus = "Huma" + colorVermell + " Caos" + colorReset;
+            } else if (personatges.get(i) instanceof Huma && personatges.get(i) instanceof Ordre) {
+                tipus = "Huma" + colorTaronja + " Ordre" + colorReset;
+            } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Caos) {
+                tipus = "Mitja" + colorVermell + " Caos" + colorReset;
+            } else if (personatges.get(i) instanceof Mitja && personatges.get(i) instanceof Ordre) {
+                tipus = "Mitja" + colorTaronja + " Caos" + colorReset;
+            } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Caos) {
+                tipus = "Maia" + colorVermell + " Caos" + colorReset;
+            } else if (personatges.get(i) instanceof Maia && personatges.get(i) instanceof Ordre) {
+                tipus = "Maia" + colorTaronja + " Caos" + colorReset;
+            }
+
+            System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
+        }
     }
 
 }
