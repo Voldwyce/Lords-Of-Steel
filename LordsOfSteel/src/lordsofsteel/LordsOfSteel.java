@@ -124,12 +124,8 @@ public class LordsOfSteel {
 
     public static void crearPersonatge(ArrayList<Personatge> personatges) {
         boolean crearPersonatge = false;
-        System.out.println("+------------------------+");
-        System.out.println("|     (1) Crear          |");
-        System.out.println("|     (2) Sortir         |");
-        System.out.println("+------------------------+");
-        System.out.println("");
-        System.out.print("Selecciona una opció: ");
+        String gameMode = "crear";
+        mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         crearPersonatge = sortir(crearSortir);
         while (!crearPersonatge) {
@@ -250,13 +246,7 @@ public class LordsOfSteel {
                 personatges.add(nouMitjaCaos);
                 System.out.println("Personatge creat: " + colorVerd + nouMitjaCaos.getNom() + colorLila + " (Caos)" + colorReset);
             }
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Crear          |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció: ");
+            mostrarMenu(gameMode);
             crearSortir = verificarMenu(sc.nextLine(), 2);
             crearPersonatge = sortir(crearSortir);
 
@@ -267,13 +257,8 @@ public class LordsOfSteel {
     public static void esborrarPersonatge(ArrayList<Personatge> personatges) {
 
         boolean borrarPersonatge = false;
-        System.out.println("");
-        System.out.println("+------------------------+");
-        System.out.println("|     (1) Esborrar       |");
-        System.out.println("|     (2) Sortir         |");
-        System.out.println("+------------------------+");
-        System.out.println("");
-        System.out.print("Selecciona una opció: ");
+        String gameMode = "esborrar";
+        mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         borrarPersonatge = sortir(crearSortir);
 
@@ -282,7 +267,7 @@ public class LordsOfSteel {
 
             mostrarPersonatges(personatges);
             if (personatges.size() <= 0) {
-                System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+                System.out.println(colorVermell + "No hi ha personatges a esborrar!!" + colorReset);
                 borrarPersonatge = true;
                 break;
             }
@@ -296,13 +281,7 @@ public class LordsOfSteel {
             } else {
                 System.out.println("El personatge proporcionat és invàlid. Si us plau, selecciona un altre vàlid.");
             }
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Esborrar       |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció: ");
+            mostrarMenu(gameMode);
             crearSortir = verificarMenu(sc.nextLine(), 2);
             borrarPersonatge = sortir(crearSortir);
         }
@@ -311,13 +290,8 @@ public class LordsOfSteel {
 
     public static void editarPersonatge(ArrayList<Personatge> personatges) {
         boolean editarPersonatge = false;
-        System.out.println("");
-        System.out.println("+------------------------+");
-        System.out.println("|     (1) Editar         |");
-        System.out.println("|     (2) Sortir         |");
-        System.out.println("+------------------------+");
-        System.out.println("");
-        System.out.print("Selecciona una opció: ");
+        String gameMode = "editar";
+        mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         System.out.println("");
         editarPersonatge = sortir(crearSortir);
@@ -325,7 +299,7 @@ public class LordsOfSteel {
         while (!editarPersonatge) {
             mostrarPersonatges(personatges);
             if (personatges.size() <= 0) {
-                System.out.println(colorVermell + "No hi ha personatges!!" + colorReset);
+                System.out.println(colorVermell + "No hi ha personatges a editar!!" + colorReset);
                 editarPersonatge = true;
                 break;
             }
@@ -394,13 +368,7 @@ public class LordsOfSteel {
             } else {
                 System.out.println("Opció no vàlida. Si us plau, selecciona un personatge vàlid.");
             }
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Editar         |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció:");
+            mostrarMenu(gameMode);
             crearSortir = verificarMenu(sc.nextLine(), 2);
             editarPersonatge = sortir(crearSortir);
         }
@@ -409,14 +377,8 @@ public class LordsOfSteel {
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
 
         boolean combat = false;
-
-        System.out.println("");
-        System.out.println("+------------------------+");
-        System.out.println("|     (1) Combat         |");
-        System.out.println("|     (2) Sortir         |");
-        System.out.println("+------------------------+");
-        System.out.println("");
-        System.out.print("Selecciona una opció: ");
+        String gameMode = "combat";
+        mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         combat = sortir(crearSortir);
 
@@ -481,6 +443,7 @@ public class LordsOfSteel {
                     } else {
                         System.out.println("");
                         System.out.println(colorVermell + "Aquest personatge ja ha estat seleccionat. Tria un altre." + colorReset);
+                        System.out.println("");
                     }
                 }
             }
@@ -648,17 +611,54 @@ public class LordsOfSteel {
             System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
         }
     }
-    
+
     public static boolean sortir(int opcio) {
-         switch (opcio) {
+        switch (opcio) {
             case 1:
-                return  false;
+                return false;
             case 2:
                 System.out.println("Sortint...");
-                return  true;
+                return true;
             default:
                 throw new AssertionError();
         }
+    }
+
+    public static void mostrarMenu(String menu) {
+        if ("combat".equals(menu)) {
+            System.out.println("");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Combat         |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
+            System.out.println("");
+            System.out.print("Selecciona una opció: ");
+        } else if ("editar".equals(menu)) {
+            System.out.println("");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Editar         |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
+            System.out.println("");
+            System.out.print("Selecciona una opció: ");
+        } else if ("esborrar".equals(menu)) {
+            System.out.println("");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Esborrar       |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
+            System.out.println("");
+            System.out.print("Selecciona una opció: ");
+        } else if ("crear".equals(menu)) {
+            System.out.println("");
+            System.out.println("+------------------------+");
+            System.out.println("|     (1) Crear          |");
+            System.out.println("|     (2) Sortir         |");
+            System.out.println("+------------------------+");
+            System.out.println("");
+            System.out.print("Selecciona una opció: ");
+        }
+
     }
 
 }
