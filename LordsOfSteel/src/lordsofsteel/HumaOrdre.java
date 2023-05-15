@@ -11,7 +11,7 @@ package lordsofsteel;
 public class HumaOrdre extends Huma implements Ordre {
 
     public HumaOrdre(String nom, int forca, int constitucio, int velocitat,
-            int intelligencia, int sort,  int nivell,Arma arma) {
+            int intelligencia, int sort, int nivell, Arma arma) {
         super(nom, forca, constitucio, velocitat, intelligencia, sort, nivell, arma);
     }
 

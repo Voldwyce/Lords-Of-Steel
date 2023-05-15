@@ -10,6 +10,6 @@ package lordsofsteel;
  */
 public interface Ordre {
 
-       public void restaurarPS();
-   
+    public void restaurarPS();
+
 }

@@ -31,7 +31,7 @@ public class Arma {
                 break;
         }
     }
-    
+
     public String getTipus() {
         return tipus;
     }
@@ -57,4 +57,3 @@ public class Arma {
     }
 
 }
-

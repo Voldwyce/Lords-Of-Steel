@@ -9,7 +9,7 @@ package lordsofsteel;
  * @author David
  */
 public interface Caos {
-    
-    public boolean atacPAReduida(Dau ... d);
-    
+
+    public boolean atacPAReduida(Dau... d);
+
 }

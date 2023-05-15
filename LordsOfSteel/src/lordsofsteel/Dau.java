@@ -9,10 +9,10 @@ package lordsofsteel;
  * @author David
  */
 public class Dau {
-    
+
     final int MAX = 25;
-    
-    public int llencar () {
-        return (int)(Math.random()*MAX)+1;
+
+    public int llencar() {
+        return (int) (Math.random() * MAX) + 1;
     }
 }

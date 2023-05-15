@@ -11,7 +11,7 @@ package lordsofsteel;
 public class HumaCaos extends Huma implements Caos {
 
     public HumaCaos(String nom, int forca, int constitucio, int velocitat,
-            int intelligencia, int sort,  int nivell, Arma arma) {
+            int intelligencia, int sort, int nivell, Arma arma) {
         super(nom, forca, constitucio, velocitat, intelligencia, sort, nivell, arma);
     }
 
@@ -21,11 +21,10 @@ public class HumaCaos extends Huma implements Caos {
         for (Dau dau : dados) {
             sum += dau.llencar();
         }
-        
+
         int paReducida = getPa() / 2;
-        
+
         return sum > paReducida;
     }
 
 }
-

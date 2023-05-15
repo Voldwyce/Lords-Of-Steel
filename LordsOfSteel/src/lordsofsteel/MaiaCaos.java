@@ -21,7 +21,7 @@ public class MaiaCaos extends Maia implements Caos {
         for (Dau dau : dados) {
             sum += dau.llencar();
         }
-        
+
         int paReducida = getPa() / 2;
         
         return sum > paReducida;

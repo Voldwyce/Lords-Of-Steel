@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package lordsofsteel;
+
 /**
  *
  * @author David
  */
 public abstract class Personatge {
-
 
     protected int forca;
     protected int constitucio;
@@ -32,9 +32,9 @@ public abstract class Personatge {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
+
     protected String nom;
-    
+
     // Arma
     protected Arma arma;
 
@@ -45,8 +45,8 @@ public abstract class Personatge {
     public void setArma(Arma arma) {
         this.arma = arma;
     }
-    
-        public void setForca(int forca) {
+
+    public void setForca(int forca) {
         this.forca = forca;
     }
 
@@ -66,7 +66,7 @@ public abstract class Personatge {
     public void setSort(int sort) {
         this.sort = sort;
     }
-    
+
     public int getForca() {
         return forca;
     }
@@ -94,8 +94,8 @@ public abstract class Personatge {
     public void setNivell(int nivell) {
         this.nivell = nivell;
     }
-    
-        public void setPs(int ps) {
+
+    public void setPs(int ps) {
         this.ps = ps;
     }
 
@@ -104,9 +104,9 @@ public abstract class Personatge {
     }
 
     public void setPa(int pa) {
-        
+
         this.pa = pa;
-        
+
     }
 
     public void setPe(int pe) {
@@ -131,7 +131,7 @@ public abstract class Personatge {
 
     public Personatge(String nom, int forca, int constitucio, int velocitat,
             int intelligencia, int sort, int nivell, Arma arma) {
-        
+
         this.nom = nom;
         this.forca = forca;
         this.constitucio = constitucio;
@@ -142,7 +142,7 @@ public abstract class Personatge {
         this.arma = arma;
 
         calculaEstadistiquesSecundaries();
-        
+
     }
 
     protected void calculaEstadistiquesSecundaries() {
@@ -151,30 +151,30 @@ public abstract class Personatge {
         pa = intelligencia + sort;
         pe = velocitat + sort + intelligencia;
     }
-    
-        public void restaurarPS() {
+
+    public void restaurarPS() {
         this.ps = (int) (this.ps * 1.10);
     }
-     
-        public void subirDeNivel(){
+
+    public void subirDeNivel() {
         this.nivell++;
         this.constitucio++;
         this.forca++;
         this.intelligencia++;
         this.sort++;
         this.velocitat++;
-            if (this.nivell == 1) {
-                this.pex -= 100;
-            } else if (this.nivell == 1) {
-                this.pex -= 200;
-            } else if (this.nivell == 2) {
-                this.pex -= 500;
-            } else if (this.nivell == 3) {
-                this.pex -= 1000;
-            } else if (this.nivell == 4) {
-                this.pex -= 2000;
-            }
-         calculaEstadistiquesSecundaries();
+        if (this.nivell == 1) {
+            this.pex -= 100;
+        } else if (this.nivell == 1) {
+            this.pex -= 200;
+        } else if (this.nivell == 2) {
+            this.pex -= 500;
+        } else if (this.nivell == 3) {
+            this.pex -= 1000;
+        } else if (this.nivell == 4) {
+            this.pex -= 2000;
+        }
+        calculaEstadistiquesSecundaries();
     }
 
     public int getPex() {
@@ -184,9 +184,9 @@ public abstract class Personatge {
     public void setPex(int pex) {
         this.pex = pex;
     }
-    
-    public int getPexSiguienteNivel(){
-        switch(this.nivell){
+
+    public int getPexSiguienteNivel() {
+        switch (this.nivell) {
             case 0:
                 return 100;
             case 1:
@@ -202,16 +202,15 @@ public abstract class Personatge {
         }
     }
 
-    public boolean atacPAReduida(Dau ...daus) {
-          int sum = 0;
+    public boolean atacPAReduida(Dau... daus) {
+        int sum = 0;
         for (Dau dau : daus) {
             sum += dau.llencar();
         }
-        
+
         int paReducida = getPa() / 2;
-        
+
         return sum > paReducida;
     }
-        
 
 }
