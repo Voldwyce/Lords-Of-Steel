@@ -124,7 +124,7 @@ public class LordsOfSteel {
 
     public static void crearPersonatge(ArrayList<Personatge> personatges) {
         boolean crearPersonatge = false;
-        String gameMode = "crear";
+        String gameMode = "(1) Crear   ";
         mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         crearPersonatge = sortir(crearSortir);
@@ -257,7 +257,7 @@ public class LordsOfSteel {
     public static void esborrarPersonatge(ArrayList<Personatge> personatges) {
 
         boolean borrarPersonatge = false;
-        String gameMode = "esborrar";
+        String gameMode = "(1) Esborrar";
         mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         borrarPersonatge = sortir(crearSortir);
@@ -290,7 +290,7 @@ public class LordsOfSteel {
 
     public static void editarPersonatge(ArrayList<Personatge> personatges) {
         boolean editarPersonatge = false;
-        String gameMode = "editar";
+        String gameMode = "(1) Editar  ";
         mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         System.out.println("");
@@ -377,7 +377,7 @@ public class LordsOfSteel {
     public static void iniciarCombat(ArrayList<Personatge> personatges) {
 
         boolean combat = false;
-        String gameMode = "combat";
+        String gameMode = "(1) Combat  ";
         mostrarMenu(gameMode);
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         combat = sortir(crearSortir);
@@ -625,40 +625,13 @@ public class LordsOfSteel {
     }
 
     public static void mostrarMenu(String menu) {
-        if ("combat".equals(menu)) {
             System.out.println("");
             System.out.println("+------------------------+");
-            System.out.println("|     (1) Combat         |");
+            System.out.println("|     " + menu + "       |");
             System.out.println("|     (2) Sortir         |");
             System.out.println("+------------------------+");
             System.out.println("");
             System.out.print("Selecciona una opció: ");
-        } else if ("editar".equals(menu)) {
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Editar         |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció: ");
-        } else if ("esborrar".equals(menu)) {
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Esborrar       |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció: ");
-        } else if ("crear".equals(menu)) {
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     (1) Crear          |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció: ");
-        }
-
     }
 
 }
