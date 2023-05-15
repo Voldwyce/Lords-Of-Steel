@@ -131,17 +131,7 @@ public class LordsOfSteel {
         System.out.println("");
         System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
-        switch (crearSortir) {
-            case 1:
-                crearPersonatge = false;
-                break;
-            case 2:
-                crearPersonatge = true;
-                System.out.println("Sortint...");
-                break;
-            default:
-                throw new AssertionError();
-        }
+        crearPersonatge = sortir(crearSortir);
         while (!crearPersonatge) {
 
             System.out.println("+-------------------------+");
@@ -268,17 +258,7 @@ public class LordsOfSteel {
             System.out.println("");
             System.out.print("Selecciona una opció: ");
             crearSortir = verificarMenu(sc.nextLine(), 2);
-            switch (crearSortir) {
-                case 1:
-                    crearPersonatge = false;
-                    break;
-                case 2:
-                    crearPersonatge = true;
-                    System.out.println("Sortint...");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
+            crearPersonatge = sortir(crearSortir);
 
         }
 
@@ -295,17 +275,7 @@ public class LordsOfSteel {
         System.out.println("");
         System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
-        switch (crearSortir) {
-            case 1:
-                borrarPersonatge = false;
-                break;
-            case 2:
-                borrarPersonatge = true;
-                System.out.println("Sortint...");
-                break;
-            default:
-                throw new AssertionError();
-        }
+        borrarPersonatge = sortir(crearSortir);
 
         System.out.println("");
         while (!borrarPersonatge) {
@@ -334,17 +304,7 @@ public class LordsOfSteel {
             System.out.println("");
             System.out.print("Selecciona una opció: ");
             crearSortir = verificarMenu(sc.nextLine(), 2);
-            switch (crearSortir) {
-                case 1:
-                    borrarPersonatge = false;
-                    break;
-                case 2:
-                    borrarPersonatge = true;
-                    System.out.println("Sortint...");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
+            borrarPersonatge = sortir(crearSortir);
         }
 
     }
@@ -360,17 +320,7 @@ public class LordsOfSteel {
         System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
         System.out.println("");
-        switch (crearSortir) {
-            case 1:
-                editarPersonatge = false;
-                break;
-            case 2:
-                editarPersonatge = true;
-                System.out.println("Sortint...");
-                break;
-            default:
-                throw new AssertionError();
-        }
+        editarPersonatge = sortir(crearSortir);
 
         while (!editarPersonatge) {
             mostrarPersonatges(personatges);
@@ -452,17 +402,7 @@ public class LordsOfSteel {
             System.out.println("");
             System.out.print("Selecciona una opció:");
             crearSortir = verificarMenu(sc.nextLine(), 2);
-            switch (crearSortir) {
-                case 1:
-                    editarPersonatge = false;
-                    break;
-                case 2:
-                    editarPersonatge = true;
-                    System.out.println("Sortint...");
-                    break;
-                default:
-                    throw new AssertionError();
-            }
+            editarPersonatge = sortir(crearSortir);
         }
     }
 
@@ -478,17 +418,7 @@ public class LordsOfSteel {
         System.out.println("");
         System.out.print("Selecciona una opció: ");
         int crearSortir = verificarMenu(sc.nextLine(), 2);
-        switch (crearSortir) {
-            case 1:
-                combat = false;
-                break;
-            case 2:
-                combat = true;
-                System.out.println("Sortint...");
-                break;
-            default:
-                throw new AssertionError();
-        }
+        combat = sortir(crearSortir);
 
         if (personatges.size() < 2) {
             System.out.println("");
@@ -692,6 +622,7 @@ public class LordsOfSteel {
 
         return valor;
     }
+
     // No llistat de combat
     public static void mostrarPersonatges(ArrayList<Personatge> personatges) {
         for (int i = 0; i < personatges.size(); i++) {
@@ -715,6 +646,18 @@ public class LordsOfSteel {
             }
 
             System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
+        }
+    }
+    
+    public static boolean sortir(int opcio) {
+         switch (opcio) {
+            case 1:
+                return  false;
+            case 2:
+                System.out.println("Sortint...");
+                return  true;
+            default:
+                throw new AssertionError();
         }
     }
 
