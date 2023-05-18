@@ -467,9 +467,7 @@ public class LordsOfSteel {
                 System.out.println("----------");
                 System.out.println(atacant.getNom() + " Intenta atacar");
 
-                int valor = 0;
-
-                valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+                int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
                 System.out.println("Valor daus atacant: " + valor);
                 System.out.println("");
 
