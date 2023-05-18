@@ -24,6 +24,41 @@ El joc Lords Of Steel ofereix diverses característiques emocionants:
 
 · Armes: El joc ofereix una varietat d'armes amb diferents atributs i efectes. Els jugadors poden equipar els seus personatges amb armes per millorar les seves habilitats de combat.
 
+## Sistema de combat
+
+Aquest és un sistema de combat basat en torns, on cada personatge intenta atacar l'adversari i l'altre intenta esquivar l'atac en cada torn. Els papers s'intercanvien en el següent torn.
+
+*Llançament de Daus:*
+
+Per determinar si un personatge encerta un atac o és capaç d'esquivar-ho, es realitza un llançament de tres daus de 25 cares per cada intent.
+
+· Atac: Si la tirada del dau és igual o inferior a la puntuació d'Atac del personatge (PA), aleshores l'atac és encertat i passa al torn de l'altre personatge per intentar esquivar-lo.
+
+· Esquivada: En el torn de l'altre personatge, si la tirada del dau és inferior o igual a la seva puntuació d'Esquivada (PE), aleshores és capaç d'evitar l'atac amb èxit.
+
+· Dany: En cas contrari, si la tirada del dau del personatge que intenta esquivar és superior a la seva PE, aquest personatge perd punts de salut (PS) iguals a la puntuació de Dany (PD) de l'atacant.
+
+*Resultat del Combat:*
+
+A cada torn, es mostrarà el resultat de les tirades dels daus, si el personatge que ataca encerta l'atac o no, si l'altre personatge encerta o no l'esquivada i, en cas contrari, els seus PS després de restar el dany rebut.
+
+## Clases i pasives
+
+· Nan: Els personatges de la classe "Nan" es especialitzen en el dany.
+
+· Humà: Els personatges de la classe "Humà" es especialitzen en la resistència.
+
+· Mitlà: Els personatges de la classe "Mitjà" es especialitzen en l'esquivada.
+
+· Maia: Els personatges de la classe "Maia" es especialitzen en la probabilitat d'atac.
+
+*ORDRE:* 
+Aquesta passiva permet restaurar un 10% dels punts de salut (PS) inicials del personatge.
+
+*CAOS:*
+Aquesta passiva rep el resultat d'una tirada de daus i intenta realitzar un contraatac amb una puntuació d'atac (PA) reduïda en un 50%.
+
+
 ## Requisits del sistema
 Per poder jugar a Lords Of Steel, es requereix:
 
