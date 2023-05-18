@@ -421,7 +421,7 @@ public class LordsOfSteel {
                                 tipus = "Maia" + colorTaronja + " Caos" + colorReset;
                             }
 
-                            System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
+                            System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + colorBlauCel + "Lv." + personatges.get(i).getNivell() + colorReset + ")" + " (" + tipus + ")");
                         }
 
                     }
@@ -450,11 +450,11 @@ public class LordsOfSteel {
             }
 
             // Inici combat
-            Personatge atacant = lluitador[0];
-            Personatge defensor = lluitador[1];
-
             int vida1 = lluitador[0].getPs();
             int vida2 = lluitador[1].getPs();
+
+            Personatge atacant = lluitador[0];
+            Personatge defensor = lluitador[1];
 
             Dau dau1 = new Dau();
             Dau dau2 = new Dau();
@@ -490,17 +490,16 @@ public class LordsOfSteel {
                             }
                         }
                     } else {
-
                         defensor.setPs(defensor.getPs() - atacant.getPd());
                         System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd() + " Ps");
                         if (atacant instanceof Ordre) {
+                            System.out.println("L'atacant ha recuperat un 10% de vida!!");
                             atacant.restaurarPS();
-                            System.out.println("S'ha robat un 10% de vida a l'enemic!!");
-                            if (lluitador[0].getPs() > vida1) {
-                                lluitador[0].setPs(vida1);
-                            } else if (lluitador[1].getPs() > vida2) {
-                                lluitador[1].setPs(vida2);
-                            }
+                        }
+                        if (lluitador[0].getPs() > vida1) {
+                            lluitador[0].setPs(vida1);
+                        } else if (lluitador[1].getPs() > vida2) {
+                            lluitador[1].setPs(vida2);
                         }
                     }
 
@@ -615,7 +614,7 @@ public class LordsOfSteel {
                 tipus = "Maia" + colorTaronja + " Caos" + colorReset;
             }
 
-            System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + tipus + ")");
+            System.out.println((i + 1) + ". " + personatges.get(i).getNom() + " (" + colorBlauCel + "Lv." + personatges.get(i).getNivell() + colorReset + ")" + " (" + tipus + ")");
         }
     }
 
