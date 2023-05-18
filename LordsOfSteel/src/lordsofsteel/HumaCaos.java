@@ -24,7 +24,7 @@ public class HumaCaos extends Huma implements Caos {
 
         int paReducida = getPa() / 2;
 
-        return sum > paReducida;
+        return sum < paReducida;
     }
 
 }

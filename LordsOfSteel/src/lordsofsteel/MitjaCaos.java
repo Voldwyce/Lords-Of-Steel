@@ -24,7 +24,7 @@ public class MitjaCaos extends Mitja implements Caos {
 
         int paReducida = getPa() / 2;
 
-        return sum > paReducida;
+        return sum < paReducida;
     }
 
 }

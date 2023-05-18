@@ -209,7 +209,7 @@ public class LordsOfSteel {
             System.out.println("Selecciona una pasiva: ");
             System.out.println("");
             System.out.println(colorTaronja + "1. Ordre (Robatori de vida)" + colorReset);
-            System.out.println(colorLila + "2. Caos (Atac extra)" + colorReset);
+            System.out.println(colorLila + "2. Caos (Contraatac)" + colorReset);
             System.out.println("");
             System.out.print("Selecció: ");
             int opcio2 = verificarMenu(sc.nextLine(), 2);
@@ -474,39 +474,34 @@ public class LordsOfSteel {
                     System.out.println("Valor daus defensor: " + valor);
                     System.out.println("");
 
-                    if (valor > defensor.getPe()) {
-                        defensor.setPs(defensor.getPs() - atacant.getPd());
-                        System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd());
-                        System.out.println("Vida restant: " + defensor.getPs());
-                        if (atacant instanceof Ordre) {
-                            atacant.restaurarPS();
-                            System.out.println("S'ha robat un 10% de vida a l'enemic");
-                            if (lluitador[0].getPs() > vida1) {
-                                lluitador[0].setPs(vida1);
-                            } else if (lluitador[1].getPs() > vida2) {
-                                lluitador[1].setPs(vida2);
-                            }
+                }
+                if (valor > defensor.getPe()) {
+                    defensor.setPs(defensor.getPs() - atacant.getPd());
+                    System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd() + " Ps");
+                    if (atacant instanceof Ordre) {
+                        atacant.restaurarPS();
+                        System.out.println("S'ha robat un 10% de vida a l'enemic");
+                        if (lluitador[0].getPs() > vida1) {
+                            lluitador[0].setPs(vida1);
+                        } else if (lluitador[1].getPs() > vida2) {
+                            lluitador[1].setPs(vida2);
                         }
-                        if (atacant instanceof Caos) {
-                            boolean atacarDeNou = atacant.atacPAReduida(dau1, dau2, dau3);
-                            if (atacarDeNou) {
-                                defensor.setPs(defensor.getPs() - atacant.getPd());
-                                System.out.println(defensor.getNom() + " ha sigut atacat de nou, ha perdut: " + atacant.getPd());
-                                System.out.println("Vida restant: " + defensor.getPs());
-                            } else {
-                                System.out.println("Ha fallat l'atac extra ");
-                            }
-                        }
-
-                    } else {
-                        System.out.println(defensor.getNom() + " ha evitat l'atac");
                     }
-                } else {
+
+                }
+                if (valor < defensor.getPe()) {
                     System.out.println(defensor.getNom() + " ha evitat l'atac");
+                    if (defensor instanceof Caos) {
+                        boolean atacarDeNou = atacant.atacPAReduida(dau1, dau2, dau3);
+                        if (atacarDeNou) {
+                            atacant.setPs(atacant.getPs() - atacant.getPd());
+                            System.out.println(defensor.getNom() + " ha contraatacat: " + defensor.getPd() + " Ps");
+                        }
+                    }
                 }
                 System.out.println("");
-                System.out.println("Vida de " + atacant.getNom() + ": " + atacant.getPs());
-                System.out.println("Vida de " + defensor.getNom() + ": " + defensor.getPs());
+                System.out.println("Vida de " + atacant.getNom() + ": " + Math.max(atacant.getPs(), 0));
+                System.out.println("Vida de " + defensor.getNom() + ": " + Math.max(defensor.getPs(), 0));
                 System.out.println("");
                 System.out.println(colorBlau + "Ronda: " + ronda + colorReset);
                 System.out.println("----------");
@@ -625,13 +620,13 @@ public class LordsOfSteel {
     }
 
     public static void mostrarMenu(String menu) {
-            System.out.println("");
-            System.out.println("+------------------------+");
-            System.out.println("|     " + menu + "       |");
-            System.out.println("|     (2) Sortir         |");
-            System.out.println("+------------------------+");
-            System.out.println("");
-            System.out.print("Selecciona una opció: ");
+        System.out.println("");
+        System.out.println("+------------------------+");
+        System.out.println("|     " + menu + "       |");
+        System.out.println("|     (2) Sortir         |");
+        System.out.println("+------------------------+");
+        System.out.println("");
+        System.out.print("Selecciona una opció: ");
     }
 
 }

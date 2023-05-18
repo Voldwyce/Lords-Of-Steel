@@ -210,7 +210,7 @@ public abstract class Personatge {
 
         int paReducida = getPa() / 2;
 
-        return sum > paReducida;
+        return sum < paReducida;
     }
 
 }

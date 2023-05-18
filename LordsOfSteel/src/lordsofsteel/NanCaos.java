@@ -24,6 +24,6 @@ public class NanCaos extends Nan implements Caos {
 
         int paReducida = getPa() / 2;
 
-        return sum > paReducida;
+        return sum < paReducida;
     }
 }
