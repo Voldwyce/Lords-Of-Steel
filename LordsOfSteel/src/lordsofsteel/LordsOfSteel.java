@@ -15,7 +15,7 @@ public class LordsOfSteel {
     static Scanner sc = new Scanner(System.in);
     static String colorVermell = "\u001B[31m";
     static String colorVerd = "\u001B[32m";
-    static String colorBlau = "\u001B[34m";
+    static String colorRosa = "\u001B[35m";
     static String colorTaronja = "\u001B[33m";
     static String colorLila = "\u001B[35m";
     static String colorBlauCel = "\u001B[36m";
@@ -66,6 +66,7 @@ public class LordsOfSteel {
         boolean sortir = false;
 
         while (!sortir) {
+
             System.out.println("");
             System.out.println("+-------------------------+");
             System.out.println("|                         |");
@@ -459,52 +460,60 @@ public class LordsOfSteel {
             Dau dau2 = new Dau();
             Dau dau3 = new Dau();
 
-            int ronda = 0;
+            int ronda = 1;
 
             while (atacant.getPs() > 0 && defensor.getPs() > 0) {
+                System.out.println(colorRosa + "Ronda: " + ronda + colorReset);
+                System.out.println("----------");
                 System.out.println(atacant.getNom() + " Intenta atacar");
 
-                int valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+                int valor = 0;
+
+                valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
                 System.out.println("Valor daus atacant: " + valor);
                 System.out.println("");
 
                 if (valor <= atacant.getPa()) {
-                    valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
+
                     System.out.println(defensor.getNom() + " Intenta esquivar l'atac");
+                    valor = dau1.llencar() + dau2.llencar() + dau3.llencar();
                     System.out.println("Valor daus defensor: " + valor);
                     System.out.println("");
 
-                }
-                if (valor > defensor.getPe()) {
-                    defensor.setPs(defensor.getPs() - atacant.getPd());
-                    System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd() + " Ps");
-                    if (atacant instanceof Ordre) {
-                        atacant.restaurarPS();
-                        System.out.println("S'ha robat un 10% de vida a l'enemic");
-                        if (lluitador[0].getPs() > vida1) {
-                            lluitador[0].setPs(vida1);
-                        } else if (lluitador[1].getPs() > vida2) {
-                            lluitador[1].setPs(vida2);
+                    if (valor <= defensor.getPe()) {
+                        System.out.println(defensor.getNom() + " ha evitat l'atac!!");
+                        if (defensor instanceof Caos) {
+                            boolean atacarDeNou = atacant.atacPAReduida(dau1, dau2, dau3);
+                            if (atacarDeNou) {
+                                atacant.setPs(atacant.getPs() - atacant.getPd());
+                                System.out.println(defensor.getNom() + " ha contraatacat: " + defensor.getPd() + " Ps");
+                            } else {
+                                System.out.println("No ha pogut contraatacar...");
+                            }
+                        }
+                    } else {
+
+                        defensor.setPs(defensor.getPs() - atacant.getPd());
+                        System.out.println(defensor.getNom() + " ha sigut atacat, ha perdut: " + atacant.getPd() + " Ps");
+                        if (atacant instanceof Ordre) {
+                            atacant.restaurarPS();
+                            System.out.println("S'ha robat un 10% de vida a l'enemic!!");
+                            if (lluitador[0].getPs() > vida1) {
+                                lluitador[0].setPs(vida1);
+                            } else if (lluitador[1].getPs() > vida2) {
+                                lluitador[1].setPs(vida2);
+                            }
                         }
                     }
 
+                } else {
+                    System.out.println(atacant.getNom() + " ha fallat l'atac!!");
                 }
-                if (valor < defensor.getPe()) {
-                    System.out.println(defensor.getNom() + " ha evitat l'atac");
-                    if (defensor instanceof Caos) {
-                        boolean atacarDeNou = atacant.atacPAReduida(dau1, dau2, dau3);
-                        if (atacarDeNou) {
-                            atacant.setPs(atacant.getPs() - atacant.getPd());
-                            System.out.println(defensor.getNom() + " ha contraatacat: " + defensor.getPd() + " Ps");
-                        }
-                    }
-                }
+
                 System.out.println("");
                 System.out.println("Vida de " + atacant.getNom() + ": " + Math.max(atacant.getPs(), 0));
                 System.out.println("Vida de " + defensor.getNom() + ": " + Math.max(defensor.getPs(), 0));
                 System.out.println("");
-                System.out.println(colorBlau + "Ronda: " + ronda + colorReset);
-                System.out.println("----------");
                 ronda++;
 
                 // Intercambi rols
@@ -516,6 +525,9 @@ public class LordsOfSteel {
             // Finalitzar combat
             Personatge guanyador = (atacant.getPs() > 0) ? atacant : defensor;
             Personatge perdedor = (atacant.getPs() > 0) ? defensor : atacant;
+
+            System.out.println(colorRosa + "Resultat " + colorReset);
+            System.out.println("----------");
             System.out.println("El guanyador és: " + colorVerd + guanyador.getNom() + colorReset);
 
             lluitador[0].setPs(vida1);
@@ -567,11 +579,13 @@ public class LordsOfSteel {
                 if (valor <= maxValor && valor >= 0) {
                     valorValid = true;
                 } else {
+                    System.out.println("");
                     System.out.println(colorVermell + "Número no vàlid" + colorReset);
                     System.out.print("Introdueix un valor correcte: ");
                     return verificarMenu(sc.nextLine(), maxValor);
                 }
             } catch (NumberFormatException e) {
+                System.out.println("");
                 System.out.println(colorVermell + "Input incorrecte" + colorReset);
                 System.out.print("Introdueix un valor correcte: ");
                 return verificarMenu(sc.nextLine(), maxValor);

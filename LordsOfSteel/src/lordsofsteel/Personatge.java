@@ -146,10 +146,10 @@ public abstract class Personatge {
     }
 
     protected void calculaEstadistiquesSecundaries() {
-        ps = constitucio + forca;
-        pd = (forca + arma.getWpow()) / 4;
-        pa = intelligencia + sort;
-        pe = velocitat + sort + intelligencia;
+        this.ps = constitucio + forca;
+        this.pd = (forca + arma.getWpow()) / 4;
+        this.pa = intelligencia + sort;
+        this.pe = velocitat + sort + intelligencia;
     }
 
     public void restaurarPS() {
